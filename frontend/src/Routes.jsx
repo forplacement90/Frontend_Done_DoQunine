@@ -9,8 +9,9 @@ import Signup from "./components/auth/Signup";
 
 // Auth Context
 import { useAuth } from "./authContext";
-import MainFile from "./components/MainFile";
-import App from "../src/App";
+import Repository from "./components/repository/Repository";
+import Message from "./components/message/Message";
+
 
 
 const ProjectRoutes = ()=>{
@@ -48,6 +49,14 @@ const ProjectRoutes = ()=>{
         {
             path:"/signup",
             element:<Signup/>
+        },
+        {
+            path:"/newRepository",
+            element:<Repository/>
+        },
+        {
+            path:"/message",
+            element:<Message/>
         },
         
     ]);

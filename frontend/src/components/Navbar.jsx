@@ -9,6 +9,7 @@ import { RiCommunityFill, RiGitPullRequestLine } from "react-icons/ri";
 import { SiGithubcopilot, SiGoogledocs } from "react-icons/si";
 import { IoGitPullRequestOutline } from "react-icons/io5";
 
+
 const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
   return (
     <nav className="bg-blue-500 shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50 ">
@@ -40,7 +41,8 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
             <div className="absolute hidden bg-blue-300 rounded-lg shadow w-60 group-focus:block top-full right-0 mt-4 border-2 border-red-500">
               <ul className="text-gray-800 font-bold text-center">
                 {[
-                  { icon: <FaRegNewspaper />, text: "New repository" },
+                  
+                  { icon: <FaRegNewspaper  />, text: "New repository"  }, 
                   { icon: <RiGitPullRequestLine />, text: "Import repository" },
                   { icon: <FaRightLeft />, text: "New codespace" },
                   { icon: <GoProjectSymlink />, text: "New gist" },
