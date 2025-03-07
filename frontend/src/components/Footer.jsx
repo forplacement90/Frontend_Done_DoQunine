@@ -3,12 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 function Footer() {
   return (
-    <footer className="footer bg-light text-dark py-4 mt-5  border-top border-2 border-success">
+    <footer className="footer bg-blue-200 text-gray-800 py-4 mt-5  border-top border-2 border-black">
       <Container>
         <Row className="align-items-center">
           {/* Left Side - Copyright Text */}
           <Col md={6} className="text-center text-md-start">
-            <p className="mb-0">© {new Date().getFullYear()} GitHub Clone. All Rights Reserved.</p>
+            <p className="mb-0">© {new Date().getFullYear()} Logic Store. All Rights Reserved.</p>
           </Col>
 
           {/* Right Side - Links */}
