@@ -8,12 +8,31 @@ const Repository = () => {
   const [addReadme, setAddReadme] = useState(false);
   const [gitignore, setGitignore] = useState("None");
   const [license, setLicense] = useState("None");
+  const [owner, setOwner] = useState("");
+  const [repoName, setRepoName] = useState("");
+  const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let newErrors = {};
+    if (!owner.trim()) newErrors.owner = "Owner is required";
+    if (!repoName.trim()) newErrors.repoName = "Repository name is required";
+    else if (!/^[a-zA-Z0-9-_]+$/.test(repoName)) newErrors.repoName = "Invalid repository name";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (validate()) {
+      alert("Repository Created Successfully!");
+    }
+  };
 
   return (
-    <div className="bg-blue-400 text-white min-h-screen  mt-17">
+    <div className="bg-blue-400 text-white min-h-screen mt-17">
       <SubComponent />
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left">Create a new Repository</h1>
+        <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left mt-3">Create a new Repository</h1>
         <p className="text-sm mb-4 text-center sm:text-left">
           A repository contains all project files, including the revision history.
         </p>
@@ -21,129 +40,91 @@ const Repository = () => {
         <p className="text-sm mb-2">Required fields are marked with an asterisk (*).</p>
 
         <div className="space-y-4">
-          {/* Owner and Repository Name */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="owner" className="text-sm font-medium">Owner</label>
+              <label className="text-sm font-medium">Owner *</label>
               <input
                 type="text"
-                id="owner"
                 placeholder="Owner"
-                className="w-full p-2 mt-2 bg-blue-200 border  rounded-md text-gray-900 ring-2"
+                className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+                value={owner}
+                onChange={(e) => setOwner(e.target.value)}
               />
+              {errors.owner && <p className="text-red-700 text-md font-bold">{errors.owner}</p>}
             </div>
             <div>
-              <label htmlFor="repo" className="text-sm font-medium">Repository Name</label>
+              <label className="text-sm font-medium">Repository Name *</label>
               <input
                 type="text"
-                id="repo"
                 placeholder="Repository name"
-                className="w-full p-2 mt-2 bg-blue-200 border  rounded-md text-gray-900 ring-2"
+                className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+                value={repoName}
+                onChange={(e) => setRepoName(e.target.value)}
               />
+              {errors.repoName && <p className="text-red-700 text-md font-bold">{errors.repoName}</p>}
             </div>
           </div>
-
-          {/* Description */}
+          
           <div>
-            <label htmlFor="description" className="text-sm font-medium">Description (optional)</label>
+            <label className="text-sm font-medium">Description (optional)</label>
             <input
               type="text"
-              id="description"
               placeholder="Description"
-              className="w-full p-2 mt-2 bg-blue-200 border  rounded-md text-gray-900 ring-2"
+              className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
 
-          <hr className="border-gray-600 mb-4" />
+          <div className="p-4 bg-blue-200 rounded-lg shadow-md border-3 border-black">
+  <h2 className="text-lg font-bold mb-3 text-gray-900">Select Repository Visibility</h2>
+  
+  <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === "public" ? "border-green-500 bg-green-100" : "border-transparent"} hover:border-green-500 transition`}>
+    <input
+      type="radio"
+      name="visibility"
+      checked={visibility === "public"}
+      onChange={() => setVisibility("public")}
+      className="hidden"
+    />
+    <FaGlobe className="text-gray-900 text-xl" />
+    <span className="text-lg text-gray-950">Public - Anyone can see this repository.</span>
+  </label>
 
-          {/* Repository Visibility */}
-          <div className="p-4 bg-blue-800 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-3">Select Repository Visibility</h2>
+  <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === "private" ? "border-red-500 bg-red-100" : "border-transparent"} hover:border-red-500 transition mt-2`}>
+    <input
+      type="radio"
+      name="visibility"
+      checked={visibility === "private"}
+      onChange={() => setVisibility("private")}
+      className="hidden"
+    />
+    <FaLock className="text-gray-900 text-xl" />
+    <span className="text-lg text-gray-950">Private - You control access.</span>
+  </label>
+</div>
 
-            <div
-              className={`flex items-center p-3 rounded-lg cursor-pointer transition hover:border-3 ring-emerald-600 ${visibility === "public" ? "bg-blue-200 border border-black-500" : "bg-blue-200"} `}
-              onClick={() => setVisibility("public")}
-            >
-              <FaGlobe className="text-gray-900 text-xl mr-3 "  /> 
-              <div>
-                <p className="font-bold text-gray-950">Public</p>
-                <p className="text-sm text-gray-900">
-                  Anyone on the internet can see this repository.
-                </p>
-              </div>
-            </div>
 
-            <div
-              className={`flex items-center p-3 rounded-lg mt-2 cursor-pointer transition  hover:border-4 ${visibility === "private" ? "bg-blue-200 border border-black-500" : "bg-blue-200"}`}
-              onClick={() => setVisibility("private")}
-            >
-              <FaLock className="text-gray-950 text-xl mr-3" />
-              <div>
-                <p className="font-bold text-gray-950">Private</p>
-                <p className="text-sm text-gray-900">
-                  You choose who can see and commit to this repository.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <hr className="border-gray-600 mb-4" />
-
-          {/* Initialize Repository */}
-          <div className="p-4 bg-blue-800 rounded-lg shadow-md">
-            <h2 className="text-lg font-bold mb-3 ">Initialize this repository with:</h2>
-
+          <div className="p-4 bg-blue-200 rounded-lg shadow-md border-2 border-black">
+            <h2 className="text-lg font-semibold mb-3 text-gray-950">Initialize this repository with:</h2>
             <label className="flex items-center space-x-2 cursor-pointer">
               <input
                 type="checkbox"
-                className="w-4 h-4 accent-blue-500"
+                className="w-4 h-4 accent-blue-200"
                 checked={addReadme}
                 onChange={() => setAddReadme(!addReadme)}
               />
-              <span className="text-sm ">Add a README file</span>
+              <span className="text-sm text-gray-950">Add a README file</span>
             </label>
-
-            <div className="mt-4">
-              <label className="text-sm ">Add .gitignore</label>
-              <select
-                className="block w-full p-2 mt-1 bg-blue-200 border border-black-600 rounded-md text-gray-900"
-                value={gitignore}
-                onChange={(e) => setGitignore(e.target.value)}
-              >
-                <option value="None">None</option>
-                <option value="Node">Node</option>
-                <option value="Python">Python</option>
-                <option value="Java">Java</option>
-              </select>
-            </div>
-
-            <div className="mt-4">
-              <label className="text-sm">Choose a license</label>
-              <select
-                className="block w-full p-2 mt-1 bg-blue-200 border border-black-600 rounded-md text-gray-900"
-                value={license}
-                onChange={(e) => setLicense(e.target.value)}
-              >
-                <option value="None">None</option>
-                <option value="MIT">MIT</option>
-                <option value="Apache 2.0">Apache 2.0</option>
-                <option value="GPLv3">GPLv3</option>
-              </select>
-            </div>
           </div>
 
-          <hr className="border-gray-600 mb-4" />
-
-          <p className="text-sm">You are creating a public repository in your personal account.</p>
-          <button className="w-50 mt-5 bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-md transition mb-10">
+          <button onClick={handleSubmit} className="w-50 mt-5 bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-md transition mb-10">
             Create repository
           </button>
-         
         </div>
       </div>
       <Footer/>
     </div>
-    
   );
 };
 

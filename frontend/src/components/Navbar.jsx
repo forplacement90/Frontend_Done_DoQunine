@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaBars, FaBell, FaPlus, FaSearch, FaSignOutAlt, FaUserCircle, FaHome } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { RiGitPullRequestLine, RiCommunityFill } from "react-icons/ri";
@@ -37,7 +38,9 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
       {/* Navbar Items */}
       <div className="flex items-center gap-x-5">
         <DropdownButton />
-        <FaBell className="w-6 h-6 text-white" />
+        <Link to="/message">
+    <FaBell className="w-6 h-6 text-white cursor-pointer" />
+  </Link>
         <UserProfileMenu logout={logout} />
       </div>
     </nav>
@@ -48,7 +51,7 @@ const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { icon: <GoProjectSymlink />, text: "New repository", link: "/new-repo" },
+    { icon: <GoProjectSymlink />, text: "New repository", link: "/newRepository" },
     { icon: <RiGitPullRequestLine />, text: "Import repository", link: "/import-repo" },
     { icon: <GoProjectSymlink />, text: "New codespace", link: "/new-codespace" },
     { icon: <GoProjectSymlink />, text: "New gist", link: "/new-gist" },
