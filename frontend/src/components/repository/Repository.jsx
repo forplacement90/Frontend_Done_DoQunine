@@ -10,7 +10,7 @@ const Repository = () => {
   const [license, setLicense] = useState("None");
 
   return (
-    <div className="bg-blue-700 text-white min-h-screen  mt-17">
+    <div className="bg-blue-400 text-white min-h-screen  mt-17">
       <SubComponent />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left">Create a new Repository</h1>

@@ -3,7 +3,7 @@ import {useNavigate, useRoutes} from 'react-router-dom'
 
 // Pages List
 import Dashboard from "./components/Dashboard";
-// import Profile from "./src/components/user/Profile";
+
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 
@@ -11,6 +11,7 @@ import Signup from "./components/auth/Signup";
 import { useAuth } from "./authContext";
 import Repository from "./components/repository/Repository";
 import Message from "./components/message/Message";
+import Profile from "./components/Profile/Profile";
 
 
 
@@ -57,6 +58,10 @@ const ProjectRoutes = ()=>{
         {
             path:"/message",
             element:<Message/>
+        },
+        {
+            path:"/profile",
+            element:<Profile/>
         },
         
     ]);
