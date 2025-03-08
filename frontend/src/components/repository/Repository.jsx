@@ -6,8 +6,7 @@ import Footer from "../Footer";
 const Repository = () => {
   const [visibility, setVisibility] = useState("public");
   const [addReadme, setAddReadme] = useState(false);
-  const [gitignore, setGitignore] = useState("None");
-  const [license, setLicense] = useState("None");
+  
   const [owner, setOwner] = useState("");
   const [repoName, setRepoName] = useState("");
   const [description, setDescription] = useState("");

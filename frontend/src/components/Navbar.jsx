@@ -20,7 +20,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
   };
 
   return (
-    <nav className="bg-blue-500 shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50">
+    <nav className="bg-blue-500 shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50 ">
       {/* Sidebar Toggle और Logo */}
       <div className="flex items-center text-xl">
         <FaBars className="text-white cursor-pointer me-4" onClick={() => setSidebarToggle(!sidebarToggle)} />

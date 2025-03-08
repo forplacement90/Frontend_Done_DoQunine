@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="sticky top-[100vh] w-full bg-blue-200 text-gray-800 py-4 border-2 border-black h-25">
+    <footer className="margin-top-auto w-full bg-blue-200 text-gray-800 py-4 border-2 border-black h-20 ">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
         {/* Left Side - Copyright Text */}
         <p className="mb-2 md:mb-0">© {new Date().getFullYear()} Logic Store. All Rights Reserved.</p>
