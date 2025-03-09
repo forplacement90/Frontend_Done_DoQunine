@@ -91,7 +91,7 @@ const UserProfileMenu = ({ logout }) => {
 
   const menuItems = [
     { icon: <FaUserCircle />, text: "Your Profile", link: "/profile" },
-    { icon: <RiGitPullRequestLine />, text: "Your Repositories", link: "/repos" },
+    { icon: <RiGitPullRequestLine />, text: "Your Repositories", link: "/" },
     { icon: <SiGithubcopilot />, text: "Your Copilot", link: "/copilot" },
     { icon: <GoProjectSymlink />, text: "Your Projects", link: "/projects" },
     { icon: <GoProjectSymlink />, text: "Your Stars", link: "/stars" },
@@ -114,7 +114,7 @@ const UserProfileMenu = ({ logout }) => {
                 {item.icon} <a href={item.link} className="ml-2">{item.text}</a>
               </li>
             ))}
-            <li className="mb-2 hover:bg-red-500 py-1 flex items-center rounded cursor-pointer text-red-700" onClick={logout}>
+            <li className="mb-2 hover:bg-blue-500 py-1 flex items-center rounded cursor-pointer text-gray-900" onClick={logout}>
               <FaSignOutAlt /> <span className="ml-2">Logout</span>
             </li>
           </ul>

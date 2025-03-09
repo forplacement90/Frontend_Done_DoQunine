@@ -28,7 +28,8 @@ const Repository = () => {
   };
 
   return (
-    <div className="bg-blue-400 text-white min-h-screen mt-12 mb-3">
+    <>
+    <div className="bg-blue-400 text-white min-h-screen mt-12 ">
       <SubComponent />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left mt-10">Create a new Repository</h1>
@@ -90,7 +91,7 @@ const Repository = () => {
     <span className="text-lg text-gray-950">Public - Anyone can see this repository.</span>
   </label>
 
-  <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === "private" ? "border-red-500 bg-red-100" : "border-transparent"} hover:border-red-500 transition mt-2`}>
+  <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === "private" ? "border-green-500 bg-green-100" : "border-transparent"} hover:border-green-500 transition mt-2`}>
     <input
       type="radio"
       name="visibility"
@@ -122,8 +123,10 @@ const Repository = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      
     </div>
+    <Footer/>
+    </>
   );
 };
 
