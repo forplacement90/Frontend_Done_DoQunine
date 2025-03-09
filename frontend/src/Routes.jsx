@@ -52,7 +52,7 @@ const ProjectRoutes = ()=>{
             element:<Signup/>
         },
         {
-            path:"/newRepository",
+            path:"/repo/create",
             element:<Repository/>
         },
         {
