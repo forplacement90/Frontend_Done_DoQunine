@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { FaGithub, FaSearch } from "react-icons/fa";
+import UserDetail from "./UsernameDetails/UserDetail";
 
 // const repositories = [
 //   { name: "React", description: "A declarative JavaScript library for building UIs." },
@@ -69,7 +70,7 @@ const MainFile = () => {
       <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
       
       <button className="flex items-center bg-blue-300 px-4 py-2 rounded-lg w-fit mb-4 shadow-md ">
-        <CgProfile className="mr-2 " /> Test User
+        <CgProfile className="mr-2 " /><UserDetail/>
       </button>
 
       {/* Recent Heading - Left Aligned */}
