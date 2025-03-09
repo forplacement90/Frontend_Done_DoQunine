@@ -20,7 +20,7 @@ const MainFile = () => {
       <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
       
       <button className="flex items-center bg-blue-300 px-4 py-2 rounded-lg w-fit mb-4 shadow-md ">
-        <CgProfile className="mr-2 " /> Test User
+        <CgProfile className="mr-2 " /> test user
       </button>
 
       {/* Recent Heading - Left Aligned */}
