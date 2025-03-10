@@ -31,10 +31,7 @@ const MainFile = () => {
       }
     };
 
-    // Load newly created repositories from local storage
-    const storedRepos = JSON.parse(localStorage.getItem("userRepos")) || [];
-    setRepositories((prev) => [...prev, ...storedRepos]);
-    console.log(setRepositories);
+    
 
     fetchRepositories();
     fetchSuggestedRepositories();
