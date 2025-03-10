@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaGlobe, FaLock } from "react-icons/fa";
 import SubComponent from "../SubComponent";
 import Footer from "../Footer";
@@ -12,32 +12,22 @@ const Repository = () => {
   const [owner, setOwner] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  // const [errors, setErrors] = useState({});
-
-  // const validate = () => {
-  //   let newErrors = {};
-  //   if (!owner.trim()) newErrors.owner = "Owner is required";
-  //   if (!repoName.trim()) newErrors.repoName = "Repository name is required";
-  //   else if (!/^[a-zA-Z0-9-_]+$/.test(repoName)) newErrors.repoName = "Invalid repository name";
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
-
-  // const handleSubmit = () => {
-  //   if (validate()) {
-  //     alert("Repository Created Successfully!");
-  //   }
-  // };
-
 
   const navigate = useNavigate();
 
+  // Fetch userId from localStorage when component mounts
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      setOwner(userId);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(name, description, visibility, owner, addReadme);
-    try{
-  
+
+    try {
       const response = await axios.post("http://localhost:3002/repo/create", {
         name,
         description,
@@ -46,8 +36,7 @@ const Repository = () => {
       });
 
       console.log(response);
-      if(response.status === 201) {
-        setOwner("");
+      if (response.status === 201) {
         setName("");
         setDescription("");
         setVisibility(true);
@@ -55,15 +44,15 @@ const Repository = () => {
 
         navigate("/");
       }
-
-    } catch(err) {
+    } catch (err) {
       console.error(err);
       alert("Repository Creation Failed!");
     }
-  }
+  };
 
   return (
-    <div className="bg-blue-400 text-white min-h-screen mt-12 mb-3">
+    <>
+    <div className="bg-blue-400 text-white min-h-screen mt-12 ">
       <SubComponent />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left mt-10">
@@ -77,40 +66,34 @@ const Repository = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium">Owner *</label>
-                    <input
-                      type="text"
-                      name="owner"
-                      placeholder="Owner"
-                      id="owner"
-                      required
-                      disabled
-                      className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
-                      value={owner}
-                      onChange={(e) => setOwner(e.target.value)}
-                      autoComplete="off"
-                    />
-                    {/* {errors.owner && <p className="text-red-700 text-md font-bold">{errors.owner}</p>} */}
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Repository Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Repository name"
-                      id="name"
-                      required
-                      className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      autoComplete="off"
-                    />
-                    {/* {errors.repoName && <p className="text-red-700 text-md font-bold">{errors.repoName}</p>} */}
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium">Owner *</label>
+                <input
+                  type="text"
+                  name="owner"
+                  id="owner"
+                  value={owner}
+                  disabled // Makes the field non-editable
+                  className="w-full p-2 mt-2 bg-gray-300 border rounded-md text-gray-900 ring-2 cursor-not-allowed"
+                />
               </div>
-          
+              <div>
+                <label className="text-sm font-medium">Repository Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Repository name"
+                  id="name"
+                  required
+                  className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="text-sm font-medium">Description (optional)</label>
               <input
@@ -126,33 +109,33 @@ const Repository = () => {
             </div>
 
             <div className="p-4 bg-blue-200 rounded-lg shadow-md border-3 border-black">
-            <h2 className="text-lg font-bold mb-3 text-gray-900">Select Repository Visibility</h2>
-  
-            <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === true ? "border-green-500 bg-green-100" : "border-transparent"} hover:border-green-500 transition`}>
-              <input
-                type="radio"
-                name="visibility"
-                checked={visibility === true}
-                onChange={() => setVisibility(true)}
-                className="hidden"
-              />
-              <FaGlobe className="text-gray-900 text-xl" />
-              <span className="text-lg text-gray-950">Public - Anyone can see this repository.</span>
-            </label>
+              <h2 className="text-lg font-bold mb-3 text-gray-900">Select Repository Visibility</h2>
 
-            <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === false ? "border-red-500 bg-red-100" : "border-transparent"} hover:border-red-500 transition mt-2`}>
-              <input
-                type="radio"
-                name="visibility"
-                checked={visibility === false}
-                onChange={() => setVisibility(false)}
-                className="hidden"
-              />
-              <FaLock className="text-gray-900 text-xl" />
-              <span className="text-lg text-gray-950">Private - You control access.</span>
-            </label>
+              <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === true ? "border-green-500 bg-green-100" : "border-transparent"} hover:border-green-500 transition`}>
+                <input
+                  type="radio"
+                  name="visibility"
+                  checked={visibility === true}
+                  onChange={() => setVisibility(true)}
+                  className="hidden"
+                />
+                <FaGlobe className="text-gray-900 text-xl" />
+                <span className="text-lg text-gray-950">Public - Anyone can see this repository.</span>
+              </label>
 
+              <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === false ? "border-red-500 bg-red-100" : "border-transparent"} hover:border-red-500 transition mt-2`}>
+                <input
+                  type="radio"
+                  name="visibility"
+                  checked={visibility === false}
+                  onChange={() => setVisibility(false)}
+                  className="hidden"
+                />
+                <FaLock className="text-gray-900 text-xl" />
+                <span className="text-lg text-gray-950">Private - You control access.</span>
+              </label>
             </div>
+
             <div className="p-4 bg-blue-200 rounded-lg shadow-md border-2 border-black">
               <h2 className="text-lg font-semibold mb-3 text-gray-950">Initialize this repository with:</h2>
               <label className="flex items-center space-x-2 cursor-pointer">
@@ -170,13 +153,12 @@ const Repository = () => {
             <button type="submit" className="w-50 mt-5 bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-md transition mb-10">
               Create repository
             </button>
-          
           </div>
         </form>
       </div>
-      
-      <Footer/>
     </div>
+    <Footer />
+    </>
   );
 };
 
