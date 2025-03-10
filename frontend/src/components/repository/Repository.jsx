@@ -63,7 +63,8 @@ const Repository = () => {
   }
 
   return (
-    <div className="bg-blue-400 text-white min-h-screen mt-12 mb-3">
+    <>
+    <div className="bg-blue-400 text-white min-h-screen mt-12 ">
       <SubComponent />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-semibold mb-3 text-center sm:text-left mt-10">Create a new Repository</h1>
@@ -175,6 +176,8 @@ const Repository = () => {
       
       <Footer/>
     </div>
+    <Footer/>
+    </>
   );
 };
 

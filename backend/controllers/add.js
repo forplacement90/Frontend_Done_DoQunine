@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 async function addRepo(filePath) {
-  const repoPath = path.resolve(process.cwd(), ".apnaGit"); //find the repository like apna git
+  const repoPath = path.resolve(process.cwd(), ".s3Git"); //find the repository like apna git
   const stagingPath = path.join(repoPath, "staging");
 
   try {

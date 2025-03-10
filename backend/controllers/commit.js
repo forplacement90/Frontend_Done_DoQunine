@@ -3,7 +3,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid"); //v4 means complex number of id like f5fe99et58phfg
 
 async function commitRepo(message) {
-  const repoPath = path.resolve(process.cwd(), ".apnaGit");//current working directory
+  const repoPath = path.resolve(process.cwd(), ".s3Git");//current working directory
   const stagedPath = path.join(repoPath, "staging");
   const commitPath = path.join(repoPath, "commits");
 

@@ -3,7 +3,7 @@ const path = require("path");  // currently work path
 
 
 async function initRepo(){
-    const repoPath = path.resolve(process.cwd(), ".apnaGit"); //repostrory used
+    const repoPath = path.resolve(process.cwd(), ".s3Git"); //repostrory used
   const commitsPath = path.join(repoPath, "commits"); 
 
   try {
