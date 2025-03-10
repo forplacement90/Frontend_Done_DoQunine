@@ -12,6 +12,8 @@ import { useAuth } from "./authContext";
 import Repository from "./components/repository/Repository";
 import Message from "./components/message/Message";
 import Profile from "./components/Profile/Profile";
+import CreationPage from "./components/CreationPage/CreationPage";
+import { Error } from "./components/error/Error";
 
 
 
@@ -52,7 +54,7 @@ const ProjectRoutes = ()=>{
             element:<Signup/>
         },
         {
-            path:"/newRepository",
+            path:"/repo/create",
             element:<Repository/>
         },
         {
@@ -62,6 +64,14 @@ const ProjectRoutes = ()=>{
         {
             path:"/profile",
             element:<Profile/>
+        },
+        {
+            path:"/creationDetials",
+            element:<CreationPage/>
+        },
+        {
+            path:"/error",
+            element:<Error/>
         },
         
     ]);

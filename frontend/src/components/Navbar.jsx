@@ -21,11 +21,14 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
 
   return (
     <nav className="bg-blue-500 shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50 ">
-      {/* Sidebar Toggle और Logo */}
-      <div className="flex items-center text-xl">
+      {/* Sidebar Toggle and Logo */}
+      <div className="flex items-center text-xl mr-3">
         <FaBars className="text-white cursor-pointer me-4" onClick={() => setSidebarToggle(!sidebarToggle)} />
+          <Link to="/">
         <img src={logo} alt="Logo" height={30} width={50} className="rounded-bl-lg" />
+        </Link>
       </div>
+     
 
       {/* Search Bar */}
       <div className="relative w-64">
@@ -33,6 +36,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
           <FaSearch />
         </span>
         <input type="text" className="w-full px-4 py-1 pl-10 rounded shadow outline-none text-black bg-gray-300 ring-2" placeholder="Search..." />
+        
       </div>
 
       {/* Navbar Items */}
@@ -51,7 +55,7 @@ const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { icon: <GoProjectSymlink />, text: "New repository", link: "/newRepository" },
+    { icon: <GoProjectSymlink />, text: "New repository", link:"/repo/create" },
     { icon: <RiGitPullRequestLine />, text: "Import repository", link: "/import-repo" },
     { icon: <GoProjectSymlink />, text: "New codespace", link: "/new-codespace" },
     { icon: <GoProjectSymlink />, text: "New gist", link: "/new-gist" },
@@ -61,7 +65,7 @@ const DropdownButton = () => {
 
   return (
     <div className="relative">
-      <div className="text-white flex items-center cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+      <div className="text-white flex items-center cursor-pointer ml-2" onClick={() => setIsOpen(!isOpen)}>
         <FaPlus className="w-6 h-6" />
         <IoMdArrowDropdown className="w-6 h-6" />
       </div>

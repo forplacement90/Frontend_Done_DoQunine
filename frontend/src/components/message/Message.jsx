@@ -13,7 +13,7 @@ export default function Message() {
   return (
     <>
     <SubComponent/>
-    <div className="min-h-screen bg-blue-800 text-gray-900 flex flex-col items-center p-6 mt-17">
+    <div className="min-h-screen bg-blue-800 text-gray-900 flex flex-col items-center p-6 mt-12">
       <div className="bg-blue-300 w-full max-w-4xl rounded-lg shadow-lg p-4">
         <div className="flex justify-between items-center border-b border-gray-700 pb-3">
           <h2 className="text-xl font-semibold flex items-center gap-2">
