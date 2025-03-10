@@ -82,11 +82,11 @@ const Profile = () => {
               <UserDetail />
             </h1>
             <div className="mt-2 flex gap-4 flex-wrap justify-center lg:justify-start">
-              <button className="bg-gray-700 px-4 py-2 rounded-lg hover:bg-blue-500">
+              <button className="bg-gray-700 px-4 py-2 rounded-lg hover:bg-blue-500 text-white">
                 Edit Profile
               </button>
               <button
-                className="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-800"
+                className="bg-green-700 px-4 py-2 rounded-lg hover:bg-green-800 text-white"
                 onClick={() => setFollowing(following + 1)}
               >
                 Following: {following}
@@ -114,9 +114,11 @@ const Profile = () => {
                 >
                   VIEW REPOSITORY
                 </a>
-                <span className="text-sm bg-blue-700 px-2 py-1 rounded-full mt-2 inline-block ml-2">
-                  {repo.private ? "Private" : "Public"}
+                <span
+               className={`text-sm px-2 py-1 rounded-full mt-2 inline-block ml-2 ${repo.visibility ? "bg-red-500 text-white" : "bg-green-500 text-white"}`}>
+              {repo.visibility ? "Private" : "Public"}
                 </span>
+
               </div>
             ))}
           </div>

@@ -80,7 +80,7 @@ const MainFile = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filteredRepos.map((repo, index) => (
             <div key={index} className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-              <h2 className="text-xl font-bold">{repo.name}</h2>
+              <h2 className="text-xl semi-bold">{repo.name}</h2>
               <p className="text-white-900">{repo.description}</p>
               <a href="#" className="text-white underline mt-2 inline-block">
                 VIEW REPOSITORY
