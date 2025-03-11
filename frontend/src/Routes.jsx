@@ -14,6 +14,8 @@ import Message from "./components/message/Message";
 import Profile from "./components/Profile/Profile";
 import CreationPage from "./components/CreationPage/CreationPage";
 import { Error } from "./components/error/Error";
+import ViewRepo from "./components/view Repository/ViewRepo";
+
 
 
 
@@ -72,6 +74,10 @@ const ProjectRoutes = ()=>{
         {
             path:"/error",
             element:<Error/>
+        },
+        {
+            path:"/viewRepository",
+            element:<ViewRepo/>
         },
         
     ]);

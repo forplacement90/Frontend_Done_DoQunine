@@ -1,12 +1,24 @@
+
 import React, { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
-import { FaGithub, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import UserDetail from "./UsernameDetails/UserDetail";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
 
 const MainFile = () => {
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestedRepositories, setSuggestedRepositories] = useState([]);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [selectedRepoId, setSelectedRepoId] = useState(null);
+
+  // Edit Modal States
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [editRepoId, setEditRepoId] = useState(null);
+  const [repoName, setRepoName] = useState("");
+  const [repoDescription, setRepoDescription] = useState("");
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -31,40 +43,93 @@ const MainFile = () => {
       }
     };
 
-    
-
     fetchRepositories();
     fetchSuggestedRepositories();
   }, []);
 
+  const handleOpenEditModal = (repo) => {
+    setEditRepoId(repo._id);
+    setRepoName(repo.name);
+    setRepoDescription(repo.description);
+    setOpenEditModal(true);
+  };
+
+  const confirmUpdateRepository = async () => {
+    try {
+      const response = await fetch(`http://localhost:3002/repo/update/${editRepoId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: repoName, description: repoDescription }),
+      });
+
+      if (response.ok) {
+        setRepositories((prevRepos) =>
+          prevRepos.map((repo) =>
+            repo._id === editRepoId ? { ...repo, name: repoName, description: repoDescription } : repo
+          )
+        );
+        setOpenEditModal(false);
+      } else {
+        alert("Error updating repository.");
+      }
+    } catch (err) {
+      console.error("Error updating repository:", err);
+    }
+  };
+
+  const handleOpenDeleteModal = (repoId) => {
+    setSelectedRepoId(repoId);
+    setOpenDeleteModal(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setOpenDeleteModal(false);
+  };
+
+  const handleCloseEditModal = () => {
+    setOpenEditModal(false);
+  };
+
+  const confirmDeleteRepository = async () => {
+    try {
+      const response = await fetch(`http://localhost:3002/repo/delete/${selectedRepoId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setRepositories((prevRepos) => prevRepos.filter((repo) => repo._id !== selectedRepoId));
+        setSuggestedRepositories((prevRepos) => prevRepos.filter((repo) => repo._id !== selectedRepoId));
+        handleCloseDeleteModal();
+      } else {
+        alert("Error deleting repository.");
+      }
+    } catch (err) {
+      console.error("Error deleting repository:", err);
+    }
+  };
+
   const filteredRepos = searchQuery
-    ? repositories.filter((repo) =>
-        repo.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+    ? repositories.filter((repo) => repo.name.toLowerCase().includes(searchQuery.toLowerCase()))
     : repositories;
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 border-4">
-      {/* Sidebar */}
       <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
         <button className="flex items-center bg-blue-300 px-4 py-2 rounded-lg w-fit mb-4 shadow-md">
           <CgProfile className="mr-2" />
           <UserDetail />
         </button>
-
         <h2 className="text-xl font-bold mb-2 text-left">Suggested Repository</h2>
-
-        <div className="relative mb-4 ">
-          <FaSearch className="absolute left-3 top-3 text-blue-100 " />
+        <div className="relative mb-4">
+          <FaSearch className="absolute left-3 top-3 text-blue-100" />
           <input
             type="text"
             value={searchQuery}
-            placeholder=" search..." 
+            placeholder="Search..."
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 pr-4 py-2 w-full rounded-lg text-blue-200 border border-blue-200"
           />
         </div>
-
         <ul className="text-white-600">
           {suggestedRepositories.map((repo) => (
             <div key={repo._id}>
@@ -74,29 +139,79 @@ const MainFile = () => {
         </ul>
       </aside>
 
-      {/* Main Content */}
       <main className="col-span-2">
         <h1 className="text-5xl font-bold mb-6 text-black">Your Repositories</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {filteredRepos.map((repo, index) => (
-            <div key={index} className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-              <h2 className="text-2xl font-bold">{repo.name}</h2>
-              <p className="text-gray-700">{repo.description}</p>
-              <a href="#" className="text-white underline mt-2 inline-block">
-                VIEW REPOSITORY
-              </a>
+          {filteredRepos.map((repo) => (
+            <div
+              key={repo._id}
+              className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 flex justify-between items-center"
+            >
+              <div>
+                <h2 className="text-2xl font-bold">{repo.name}</h2>
+                <p className="text-gray-700">{repo.description}</p>
+                <a href="/viewRepository" className="text-white underline mt-2 inline-block">
+                  VIEW REPOSITORY
+                </a>
+              </div>
+              <Button
+                className="!bg-green-600 !text-white !mr-3"
+                onClick={() => handleOpenEditModal(repo)}
+                variant="contained"
+                startIcon={<EditIcon />}
+              >
+                Edit
+              </Button>
+              <Button
+                className="!bg-red-600 !text-white"
+                onClick={() => handleOpenDeleteModal(repo._id)}
+                variant="contained"
+                startIcon={<DeleteIcon />}
+              >
+                Delete
+              </Button>
             </div>
           ))}
         </div>
       </main>
 
-      {/* Upcoming Events */}
       <aside className="bg-blue-300 p-4 rounded-lg col-span-1">
         <h2 className="text-lg font-bold mb-4">Upcoming Events</h2>
         <div className="bg-blue-200 p-4 rounded-lg mb-4 hover:bg-indigo-500">Tech Conference - Dec 15</div>
-        <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500 mb-4">Developer Meetup - Dec 25</div>
-        <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500">Hackathon - Jan 5</div>
-      </aside>
+       <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500 mb-4">Developer Meetup - Dec 25</div>
+       <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500">Hackathon - Jan 5</div>
+    </aside>
+
+      <Dialog open={openDeleteModal} onClose={handleCloseDeleteModal}>
+        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogContent>
+          <p>Are you sure you want to delete this repository?</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDeleteModal} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={confirmDeleteRepository} color="error">
+            Confirm Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={openEditModal} onClose={handleCloseEditModal}>
+        <DialogTitle>Edit Repository</DialogTitle>
+        <DialogContent>
+          <TextField label="Repository Name" fullWidth value={repoName} onChange={(e) => setRepoName(e.target.value)} margin="dense" />
+          <TextField label="Description" fullWidth multiline rows={3} value={repoDescription} onChange={(e) => setRepoDescription(e.target.value)} margin="dense" />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseEditModal} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={confirmUpdateRepository} color="primary">
+            Save Changes
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

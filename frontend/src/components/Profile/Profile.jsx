@@ -115,8 +115,8 @@ const Profile = () => {
                   VIEW REPOSITORY
                 </a>
                 <span
-               className={`text-sm px-2 py-1 rounded-full mt-2 inline-block ml-2 ${repo.visibility ? "bg-red-500 text-white" : "bg-green-500 text-white"}`}>
-              {repo.visibility ? "Private" : "Public"}
+               className={`text-sm px-2 py-1 rounded-full mt-2 inline-block ml-2 ${repo.visibility ? "   bg-green-500 text-white" : "bg-red-500 text-white"}`}>
+              {repo.visibility ? "  Public" : "Private"}
                 </span>
 
               </div>
