@@ -125,6 +125,7 @@ const UserProfileMenu = ({ logout }) => {
 };
 
 
+
 const Sidebar = ({ sidebarToggle }) => {
   const menuItems = [
     { icon: <FaHome />, text: "Home", link: "/" },
@@ -134,9 +135,10 @@ const Sidebar = ({ sidebarToggle }) => {
     { icon: <GoCommentDiscussion />, text: "Discussion", link: "/discussions" },
     { icon: <MdExplore />, text: "Explore", link: "/explore" },
   ];
+ 
 
   return (
-    <div className={`bg-blue-200 fixed h-full px-4 py-1 w-60 transition-all duration-300 mt-8 border-2 border-red-500 ${sidebarToggle ? "translate-x-0" : "-translate-x-64"}`}>
+    <div className={  ` bg-blue-200 fixed h-full px-4 py-1 w-60 transition-all duration-300 mt-8 border-2 border-red-500 ${sidebarToggle ? "translate-x-0" : "-translate-x-64"}`}>
       <div className="my-2 mb-5 mt-10">
         <img src={logo} alt="Logo" height={100} width={100} className="rounded-full" />
       </div>
@@ -151,5 +153,6 @@ const Sidebar = ({ sidebarToggle }) => {
     </div>
   );
 };
+
 
 export { Navbar, Sidebar };

@@ -44,7 +44,7 @@ const MainFile = () => {
     : repositories;
 
   return (
-    <div className="min-h-screen bg-blue-800 text-gray-800 font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 border-4">
+    <div className="min-h-screen bg-white text-gray-800 font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 border-4">
       {/* Sidebar */}
       <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
         <button className="flex items-center bg-blue-300 px-4 py-2 rounded-lg w-fit mb-4 shadow-md">
@@ -54,14 +54,14 @@ const MainFile = () => {
 
         <h2 className="text-xl font-bold mb-2 text-left">Suggested Repository</h2>
 
-        <div className="relative mb-4">
-          <FaSearch className="absolute left-3 top-3 text-white-400" />
+        <div className="relative mb-4 ">
+          <FaSearch className="absolute left-3 top-3 text-blue-100 " />
           <input
             type="text"
             value={searchQuery}
-            placeholder="Search..."
+            placeholder=" search..." 
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-4 py-2 w-full rounded-lg text-white ring-2 "
+            className="pl-10 pr-4 py-2 w-full rounded-lg text-blue-200 border border-blue-200"
           />
         </div>
 
@@ -76,12 +76,12 @@ const MainFile = () => {
 
       {/* Main Content */}
       <main className="col-span-2">
-        <h1 className="text-5xl font-bold mb-6 text-amber-100">Your Repositories</h1>
+        <h1 className="text-5xl font-bold mb-6 text-black">Your Repositories</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filteredRepos.map((repo, index) => (
             <div key={index} className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-              <h2 className="text-xl semi-bold">{repo.name}</h2>
-              <p className="text-white-900">{repo.description}</p>
+              <h2 className="text-2xl font-bold">{repo.name}</h2>
+              <p className="text-gray-700">{repo.description}</p>
               <a href="#" className="text-white underline mt-2 inline-block">
                 VIEW REPOSITORY
               </a>

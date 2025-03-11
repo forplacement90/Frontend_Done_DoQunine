@@ -67,7 +67,7 @@ const Profile = () => {
   return (
     <>
       <SubComponent />
-      <div className="bg-blue-400 text-gray-900 min-h-screen p-6 flex flex-col items-center mt-17">
+      <div className="bg-white text-gray-900 min-h-screen p-6 flex flex-col items-center mt-17">
         <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Section - Profile */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -125,7 +125,7 @@ const Profile = () => {
         </div>
 
       {/* Contribution Heatmap */}
-<div className="mt-8 p-6 bg-blue-600 rounded-lg w-full max-w-7xl border-2">
+<div className="mt-8 p-6 bg-blue-500 rounded-lg w-full max-w-7xl border-2">
   <h3 className="text-lg font-semibold mb-4 text-center lg:text-left text-gray-900">
     Recent Contributions
   </h3>
