@@ -75,7 +75,7 @@ const DropdownButton = ({ activeDropdown, setActiveDropdown }) => {
     </div>
 
       {isOpen && (
-        <div className="absolute bg-blue-300 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
+        <div className="absolute bg-blue-200 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
           <ul className="text-gray-800 font-bold">
             {menuItems.map((item, index) => (
               <li key={index} className="mb-2 hover:bg-blue-500 py-2 flex items-center rounded">
@@ -111,7 +111,7 @@ const UserProfileMenu = ({ activeDropdown, setActiveDropdown, logout }) => {
       </div>
 
       {isOpen && (
-        <div className="absolute bg-blue-300 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
+        <div className="absolute bg-blue-200 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
           <ul className="text-gray-700 font-bold">
             {menuItems.map((item, index) => (
               <li key={index} className="mb-2 hover:bg-blue-500 py-1 flex items-center rounded">

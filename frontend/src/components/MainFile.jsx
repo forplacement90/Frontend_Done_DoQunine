@@ -153,6 +153,7 @@ const MainFile = () => {
                 <a href="/viewRepository" className="text-white underline mt-2 inline-block">
                   VIEW REPOSITORY
                 </a>
+
               </div>
               <Button
                 className="!bg-green-600 !text-white !mr-2"
@@ -170,6 +171,7 @@ const MainFile = () => {
               >
                 Delete
               </Button>
+             
             </div>
           ))}
         </div>
