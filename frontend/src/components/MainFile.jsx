@@ -148,14 +148,14 @@ const MainFile = () => {
               className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 flex justify-between items-center"
             >
               <div>
-                <h2 className="text-2xl font-bold">{repo.name}</h2>
+                <h2 className="text-2xl font-bold  ">{repo.name}</h2>
                 <p className="text-gray-700">{repo.description}</p>
                 <a href="/viewRepository" className="text-white underline mt-2 inline-block">
                   VIEW REPOSITORY
                 </a>
               </div>
               <Button
-                className="!bg-green-600 !text-white !mr-3"
+                className="!bg-green-600 !text-white !mr-2"
                 onClick={() => handleOpenEditModal(repo)}
                 variant="contained"
                 startIcon={<EditIcon />}
@@ -163,7 +163,7 @@ const MainFile = () => {
                 Edit
               </Button>
               <Button
-                className="!bg-red-600 !text-white"
+                className="!bg-red-600 !text-white "
                 onClick={() => handleOpenDeleteModal(repo._id)}
                 variant="contained"
                 startIcon={<DeleteIcon />}
@@ -200,7 +200,7 @@ const MainFile = () => {
       <Dialog open={openEditModal} onClose={handleCloseEditModal}>
         <DialogTitle>Edit Repository</DialogTitle>
         <DialogContent>
-          <TextField label="Repository Name" fullWidth value={repoName} onChange={(e) => setRepoName(e.target.value)} margin="dense" />
+          <TextField label="Repository Name" fullWidth value={repoName} onChange={(e) => setRepoName(e.target.value)} margin="dense" disabled />
           <TextField label="Description" fullWidth multiline rows={3} value={repoDescription} onChange={(e) => setRepoDescription(e.target.value)} margin="dense" />
         </DialogContent>
         <DialogActions>

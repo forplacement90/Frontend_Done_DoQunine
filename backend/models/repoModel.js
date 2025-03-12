@@ -10,6 +10,7 @@ const RepositorySchema = new Schema({
   },
   description: {
     type: String,
+    maxLength: 20
   },
   content: [
     {

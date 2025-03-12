@@ -11,6 +11,7 @@ import { useAuth } from "../authContext";
 
 const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
   const { setCurrentUser } = useAuth();
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -41,18 +42,18 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
 
       {/* Navbar Items */}
       <div className="flex items-center gap-x-5">
-        <DropdownButton />
+      <DropdownButton activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown} />
         <Link to="/message">
     <FaBell className="w-6 h-6 text-white cursor-pointer" />
   </Link>
-        <UserProfileMenu logout={logout} />
+  <UserProfileMenu activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown} logout={logout} />
       </div>
     </nav>
   );
 };
 
-const DropdownButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const DropdownButton = ({ activeDropdown, setActiveDropdown }) => {
+  const isOpen = activeDropdown === "dropdown";
 
   const menuItems = [
     { icon: <GoProjectSymlink />, text: "New repository", link:"/repo/create" },
@@ -65,10 +66,13 @@ const DropdownButton = () => {
 
   return (
     <div className="relative">
-      <div className="text-white flex items-center cursor-pointer ml-2" onClick={() => setIsOpen(!isOpen)}>
-        <FaPlus className="w-6 h-6" />
-        <IoMdArrowDropdown className="w-6 h-6" />
-      </div>
+    <div
+      className="text-white flex items-center cursor-pointer ml-2"
+      onClick={() => setActiveDropdown(isOpen ? null : "dropdown")}
+    >
+      <FaPlus className="w-6 h-6" />
+      <IoMdArrowDropdown className="w-6 h-6" />
+    </div>
 
       {isOpen && (
         <div className="absolute bg-blue-300 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
@@ -86,8 +90,8 @@ const DropdownButton = () => {
 };
 
 
-const UserProfileMenu = ({ logout }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const UserProfileMenu = ({ activeDropdown, setActiveDropdown, logout }) => {
+  const isOpen = activeDropdown === "profile";
 
   const menuItems = [
     { icon: <FaUserCircle />, text: "Your Profile", link: "/profile" },
@@ -102,7 +106,7 @@ const UserProfileMenu = ({ logout }) => {
 
   return (
     <div className="relative">
-      <div className="text-white flex items-center cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+      <div className="text-white flex items-center cursor-pointer" onClick={() => setActiveDropdown(isOpen ? null : "profile")}>
         <FaUserCircle className="w-6 h-6" />
       </div>
 
