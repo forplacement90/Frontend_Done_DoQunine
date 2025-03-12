@@ -48,7 +48,7 @@ async function signup(req, res) {
     const token = jwt.sign(
       { id: result.insertId }, //mongodb jo id proceduced karega wohi used hoga idhar
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     res.json({ token, userId: result.insertId });
   } catch (err) {

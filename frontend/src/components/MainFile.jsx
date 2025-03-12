@@ -175,7 +175,7 @@ const MainFile = () => {
         </div>
       </main>
 
-      <aside className="bg-blue-300 p-4 rounded-lg col-span-1">
+      <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
         <h2 className="text-lg font-bold mb-4">Upcoming Events</h2>
         <div className="bg-blue-200 p-4 rounded-lg mb-4 hover:bg-indigo-500">Tech Conference - Dec 15</div>
        <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500 mb-4">Developer Meetup - Dec 25</div>

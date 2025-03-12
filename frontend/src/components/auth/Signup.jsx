@@ -36,7 +36,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 p-6  ">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 p-6 " >
       <div className="bg-blue-400 text-white p-8 rounded-2xl shadow-2xl flex max-w-4xl w-full ring-black-200">
         <div className="hidden md:flex flex-col justify-center items-center w-1/2 p-6 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl">
           <img className="w-48 h-48" src={logo} alt="Logo" />
