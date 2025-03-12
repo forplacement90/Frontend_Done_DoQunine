@@ -18,7 +18,7 @@ export default function ViewRepo() {
     <div className="min-h-screen bg-white text-white p-6 mt-15">
       {/* Header */}
       <div className="flex justify-between items-center border-b border-blue-700 pb-4 mb-4">
-        <h1 className="text-lg font-bold">main</h1>
+        <h1 className="text-lg font-bold"></h1>
         <div className="flex items-center gap-4">
           <span className="text-sm">1 Branch | 0 Tags</span>
           <div className="relative">
