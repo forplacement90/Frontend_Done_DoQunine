@@ -15,6 +15,7 @@ import Profile from "./components/Profile/Profile";
 import CreationPage from "./components/CreationPage/CreationPage";
 import { Error } from "./components/error/Error";
 import ViewRepo from "./components/view Repository/ViewRepo";
+import ChatBot from "./components/chatbot ai/ChatBot";
 
 
 
@@ -78,6 +79,10 @@ const ProjectRoutes = ()=>{
         {
             path:"/viewRepository",
             element:<ViewRepo/>
+        },
+        {
+            path:"/chatbot",
+            element:<ChatBot/>
         },
         
     ]);

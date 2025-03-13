@@ -96,7 +96,7 @@ const UserProfileMenu = ({ activeDropdown, setActiveDropdown, logout }) => {
   const menuItems = [
     { icon: <FaUserCircle />, text: "Your Profile", link: "/profile" },
     { icon: <RiGitPullRequestLine />, text: "Your Repositories", link: "/" },
-    { icon: <SiGithubcopilot />, text: "Your Copilot", link: "/copilot" },
+    { icon: <SiGithubcopilot />, text: "Your ChatBot", link: "/chatbot" },
     { icon: <GoProjectSymlink />, text: "Your Projects", link: "/projects" },
     { icon: <GoProjectSymlink />, text: "Your Stars", link: "/stars" },
     { icon: <SiGoogledocs />, text: "LogicStore Docs", link: "https://docs.logicstore.com" },
