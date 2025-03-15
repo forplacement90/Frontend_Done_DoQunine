@@ -2,6 +2,8 @@ import React from "react";
 import { FaFolder, FaFileAlt, FaBookOpen, FaSearch } from "react-icons/fa";
 import SubComponent from "../SubComponent";
 import Footer from "../Footer";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const files = [
   { name: "public/CSS", type: "folder" },
@@ -12,6 +14,20 @@ const files = [
 ];
 
 export default function ViewRepo() {
+  const { repoId } = useParams();
+  const [repo, setRepo] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3002/repo/${repoId}`)
+    .then(response => response.json())
+    .then(data => setRepo(data))
+    .catch((err) => {
+      console.error(err);
+    });
+  }, [repoId]);
+
+  if(!repo) return <h2>Loading...</h2>
+
   return (
     <>
     <SubComponent/>
@@ -20,6 +36,7 @@ export default function ViewRepo() {
       <div className="flex justify-between items-center border-b border-blue-700 pb-4 mb-4">
         <h1 className="text-lg font-bold"></h1>
         <div className="flex items-center gap-4">
+          <span className="text-black">{repo.name || "name"}</span>
           <span className="text-sm">1 Branch | 0 Tags</span>
           <div className="relative">
             <FaSearch className="absolute left-2 top-2 w-4 h-4 text-gray-400" />

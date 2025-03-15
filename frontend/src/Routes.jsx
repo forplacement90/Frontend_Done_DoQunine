@@ -77,7 +77,7 @@ const ProjectRoutes = ()=>{
             element:<Error/>
         },
         {
-            path:"/viewRepository",
+            path:"/viewRepository/:repoId",
             element:<ViewRepo/>
         },
         {

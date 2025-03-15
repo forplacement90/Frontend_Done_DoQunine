@@ -150,7 +150,7 @@ const MainFile = () => {
               <div>
                 <h2 className="text-2xl font-bold  ">{repo.name}</h2>
                 <p className="text-gray-700">{repo.description}</p>
-                <a href="/viewRepository" className="text-white underline mt-2 inline-block">
+                <a href={`/viewRepository/${repo._id}`} className="text-white underline mt-2 inline-block">
                   VIEW REPOSITORY
                 </a>
 
