@@ -15,7 +15,6 @@ const files = [
 
 export default function ViewRepo() {
   const { repoId } = useParams();
-  console.log(repoId);
   const [repo, setRepo] = useState(null);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function ViewRepo() {
   }, [repoId]);
 
   if(!repo) return <h2>Loading...</h2>
-  console.dir(repo);
+  
   return (
     <>
     <SubComponent/>
