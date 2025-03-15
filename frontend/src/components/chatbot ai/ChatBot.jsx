@@ -109,7 +109,7 @@ const ChatBot = () => {
     }
 
     return (
-        <div className="container"> 
+        <div className="chat-container"> 
             <div className="data-container">
                 <p className={qnsClass}>{qns}</p>
                 <p className="ans">{ans}</p>
