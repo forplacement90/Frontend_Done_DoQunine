@@ -51,7 +51,7 @@ const ChatBot = () => {
             <div className="flex-1 flex flex-col p-6 bg-white rounded-lg shadow-lg border border-gray-300 ring-2 mr-3">
                 <div className="flex-1 overflow-y-auto p-4 border-b border-gray-300">
                     <p className={`bg-blue-100 text-blue-800 rounded-lg p-4 mb-3 ${qnsClass} font-semibold`}>{qns}</p>
-                    <p className="p-4 text-gray-700 bg-gray-200 rounded-lg shadow-sm">{ans}</p>
+                    <p className={`p-4 text-gray-700 bg-gray-200 rounded-lg shadow-sm ${qnsClass}`}>{ans}</p>
                     <div className="flex justify-center mt-4">
                         <HashLoader loading={loading} color="#4A90E2" />
                     </div>
