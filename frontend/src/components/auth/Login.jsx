@@ -22,8 +22,8 @@ const Login = ({ isSignup }) => {
       tempErrors.username = "Username must be at least 3 characters";
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       tempErrors.email = "Invalid email format";
-    if (!formData.password || formData.password.length < 6)
-      tempErrors.password = "Password must be at least 6 characters";
+    if (!formData.password || formData.password.length < 4)
+      tempErrors.password = "Password must be at least 4 characters";
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };

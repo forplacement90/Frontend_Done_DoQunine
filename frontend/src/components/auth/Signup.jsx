@@ -64,7 +64,7 @@ const Signup = () => {
         <div className="hidden md:flex flex-col justify-center items-center w-1/2 p-6 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl">
           <img className="w-48 h-48" src={logo} alt="Logo" />
           <p className="text-center mt-4 text-sm font-light">
-            You Are Few Minutes Away To Boost Your Skills With <span className="font-semibold">Sourav Kumar</span>
+            You Are Few Minutes Away To Boost Your Skills With <span className="font-semibold">Sourav Kumar & Sujit Som</span>
           </p>
         </div>
         <div className="w-full md:w-1/2 p-6">
