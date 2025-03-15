@@ -15,6 +15,7 @@ const files = [
 
 export default function ViewRepo() {
   const { repoId } = useParams();
+  console.log(repoId);
   const [repo, setRepo] = useState(null);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function ViewRepo() {
   }, [repoId]);
 
   if(!repo) return <h2>Loading...</h2>
-
+  console.dir(repo);
   return (
     <>
     <SubComponent/>
@@ -36,8 +37,8 @@ export default function ViewRepo() {
       <div className="flex justify-between items-center border-b border-blue-700 pb-4 mb-4">
         <h1 className="text-lg font-bold"></h1>
         <div className="flex items-center gap-4">
-          <span className="text-black">{repo.name || "name"}</span>
-          <span className="text-sm">1 Branch | 0 Tags</span>
+          <span className="text-blue-800">Repository Name: {repo[0].name || "default-name"}</span>
+          <span className="text-black">1 Branch | 0 Tags</span>
           <div className="relative">
             <FaSearch className="absolute left-2 top-2 w-4 h-4 text-gray-400" />
             <input
@@ -74,3 +75,5 @@ export default function ViewRepo() {
     </>
   );
 }
+
+
