@@ -16,6 +16,9 @@ import CreationPage from "./components/CreationPage/CreationPage";
 import { Error } from "./components/error/Error";
 import ViewRepo from "./components/view Repository/ViewRepo";
 import ChatBot from "./components/chatbot ai/ChatBot";
+import ContactUs from "./components/contact _us/ContactUs";
+import LogicStoreDocs from "./components/LogicStore Docs/LogicStoreDocs";
+import Community from "./components/Community/Community";
 
 
 
@@ -83,6 +86,18 @@ const ProjectRoutes = ()=>{
         {
             path:"/chatbot",
             element:<ChatBot/>
+        },
+        {
+            path:"/contact-us",
+            element:<ContactUs/>
+        },
+        {
+            path:"/Logic-Store-Docs",
+            element:<LogicStoreDocs/>
+        },
+        {
+            path:"/community",
+            element:<Community/>
         },
         
     ]);

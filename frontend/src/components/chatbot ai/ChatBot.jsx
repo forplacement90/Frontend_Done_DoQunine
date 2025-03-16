@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Loader2, History } from "lucide-react";
 import HashLoader from "react-spinners/HashLoader";
+import SubComponent from "../SubComponent";
+import Footer from "../Footer";
 
 const API_BASE_URL = "http://localhost:3002/api";
 
@@ -46,7 +48,9 @@ const ChatBot = () => {
     };
 
     return (
-        <div className="w-full h-screen flex flex-col md:flex-row bg-gray-300 p-4 md:p-6 rounded-lg shadow-lg relative ">
+        <>
+        <SubComponent/>
+        <div className="w-full h-screen flex flex-col md:flex-row bg-gray-300 p-4 md:p-6 rounded-lg shadow-lg relative  mt-13">
             {/* Chat Section */}
             <div className="flex-1 flex flex-col p-6 bg-white rounded-lg shadow-lg border border-gray-300 ring-2 mr-3">
                 <div className="flex-1 overflow-y-auto p-4 border-b border-gray-300">
@@ -102,6 +106,8 @@ const ChatBot = () => {
                 </ul>
             </div>
         </div>
+        <Footer/>
+        </>
     );
 };
 

@@ -97,11 +97,11 @@ const UserProfileMenu = ({ activeDropdown, setActiveDropdown, logout }) => {
     { icon: <FaUserCircle />, text: "Your Profile", link: "/profile" },
     { icon: <RiGitPullRequestLine />, text: "Your Repositories", link: "/" },
     { icon: <SiGithubcopilot />, text: "Your ChatBot", link: "/chatbot" },
-    { icon: <GoProjectSymlink />, text: "Your Projects", link: "/projects" },
+    { icon: <GoProjectSymlink />, text: "Your Projects", link: "/viewRepository/:repoId" },
     { icon: <GoProjectSymlink />, text: "Your Stars", link: "/stars" },
-    { icon: <SiGoogledocs />, text: "LogicStore Docs", link: "https://docs.logicstore.com" },
-    { icon: <MdOutlineSupportAgent />, text: "LogicStore Support", link: "/support" },
-    { icon: <RiCommunityFill />, text: "LogicStore Community", link: "/community" },
+    { icon: <SiGoogledocs />, text: "LogicStore Docs", link: "/Logic-Store-Docs" },
+    { icon: <MdOutlineSupportAgent />, text: "Contact Us", link: "/contact-us" },
+    { icon: <RiCommunityFill />, text: " Community", link: "/community" },
   ];
 
   return (
