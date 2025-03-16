@@ -3,12 +3,6 @@ import {useNavigate, useRoutes} from 'react-router-dom'
 
 // Pages List
 import Dashboard from "./components/Dashboard";
-
-import Login from "./components/auth/Login";
-import Signup from "./components/auth/Signup";
-
-// Auth Context
-import { useAuth } from "./authContext";
 import Repository from "./components/repository/Repository";
 import Message from "./components/message/Message";
 import Profile from "./components/Profile/Profile";
@@ -19,8 +13,17 @@ import ChatBot from "./components/chatbot ai/ChatBot";
 import ContactUs from "./components/contact _us/ContactUs";
 import LogicStoreDocs from "./components/LogicStore Docs/LogicStoreDocs";
 import Community from "./components/Community/Community";
+import CreateIssue from "./components/issue/CreateIssue";
 
 
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+
+// Auth Context
+import { useAuth } from "./authContext";
+import DeleteRepo from "./components/repository/DeleteRepo";
+import EditRepo from "./components/repository/EditRepo";
+import ViewFile from "./components/repository/ViewFile";
 
 
 const ProjectRoutes = ()=>{
@@ -96,9 +99,29 @@ const ProjectRoutes = ()=>{
             element:<LogicStoreDocs/>
         },
         {
+            path: "/repo/delete/:id",
+            element:<DeleteRepo/>
+        },
+        {
             path:"/community",
             element:<Community/>
         },
+
+        {
+            path: "/repo/update/:id",
+            element: <EditRepo/>
+        },
+        {
+            path: "/repo/:id/files",
+            element: <ViewFile/>
+        },
+        {
+            path: "/createIssue",
+            element: <CreateIssue/>
+        },
+
+
+        
         
     ]);
 
