@@ -100,24 +100,29 @@ async function updateRepositoryById(req, res) {
   const { content, description } = req.body;
 
   try {
-    const repository = await Repository.findById(id);
-    if (!repository) {
-      return res.status(404).json({ error: "Repository not found!" });
+    const result = await Repository.findById(id);
+
+    if (!result) {
+        return res.status(404).json({ message: "Repository not found!" });
     }
 
-    repository.content.push(content);
-    repository.description = description;
+    if (name) {
+        result.name = name
+    }
+    if (description) {
+        result.description = description
+    }
+    if (visibility) {
+        result.visibility = visibility
+    }
 
-    const updatedRepository = await repository.save();
+    const updatedRepository = await result.save();
 
-    res.json({
-      message: "Repository updated successfully!",
-      repository: updatedRepository,
-    });
-  } catch (err) {
-    console.error("Error during updating repository : ", err.message);
+    res.status(201).json({ message: "Your repository has been updated!", updatedRepository });
+} catch (err) {
+    console.log("Error updating Repository : ", err.message);
     res.status(500).send("Server error");
-  }
+}
 }
 
 async function toggleVisibilityById(req, res) {

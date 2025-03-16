@@ -5,32 +5,35 @@ const RepositorySchema = new Schema({
   
   name: {
     type: String,
-    required: true,
     unique: true,
-  },
-  description: {
-    type: String,
-    maxLength: 60
-  },
-  content: [
-    {
-      type: String,
-    },
-  ],
-  visibility: {
-    type: Boolean, //true and flase
-  },
-  owner: {
+    required: true,
+},
+
+description: {
+    type: String
+},
+
+content: {
+    type: Schema.Types.ObjectId,
+    ref: "Content"
+},
+
+visibility: {
+    type: Boolean
+},
+
+owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true,
-  },
-  issues: [
+    required: true
+},
+
+issues: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Issue",
-    },
-  ],
+        type: Schema.Types.ObjectId,
+        ref: "Issue"
+    }
+]
 });
 
 const Repository = mongoose.model("Repository", RepositorySchema);
