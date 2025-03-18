@@ -58,9 +58,9 @@ const DropdownButton = ({ activeDropdown, setActiveDropdown }) => {
   const menuItems = [
     { icon: <GoProjectSymlink />, text: "New repository", link:"/repo/create" },
     { icon: <RiGitPullRequestLine />, text: "Import repository", link: "/import-repo" },
-    { icon: <GoProjectSymlink />, text: "New codespace", link: "/new-codespace" },
-    { icon: <GoProjectSymlink />, text: "New gist", link: "/new-gist" },
-    { icon: <GoProjectSymlink />, text: "New organization", link: "/new-org" },
+    { icon: <GoProjectSymlink />, text: "New codespace", link: "/codespace" },
+    { icon: <GoProjectSymlink />, text: "New gist", link: "/new grid" },
+    { icon: <GoProjectSymlink />, text: "New organization", link: "/organization" },
     { icon: <GoProjectSymlink />, text: "New project", link: "/new-project" },
   ];
 
@@ -136,8 +136,8 @@ const Sidebar = ({ sidebarToggle }) => {
     { icon: <GoProjectSymlink />, text: "Issues", link: "/issues" },
     { icon: <RiGitPullRequestLine />, text: "Pull Requests", link: "/pulls" },
     { icon: <GoProjectSymlink />, text: "Projects", link: "/projects" },
-    { icon: <GoCommentDiscussion />, text: "Discussion", link: "/discussions" },
-    { icon: <MdExplore />, text: "Explore", link: "/explore" },
+    { icon: <GoCommentDiscussion />, text: "Discussion", link: "/community" },
+    { icon: <MdExplore />, text: "Explore", link: "/" },
   ];
  
 

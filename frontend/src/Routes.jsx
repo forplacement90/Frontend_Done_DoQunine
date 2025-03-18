@@ -19,6 +19,13 @@ import ChatBot from "./components/chatbot ai/ChatBot";
 import ContactUs from "./components/contact _us/ContactUs";
 import LogicStoreDocs from "./components/LogicStore Docs/LogicStoreDocs";
 import Community from "./components/Community/Community";
+import CodeSpace from "./components/Codespace/CodeSpace";
+import Organization from "./components/organization/Organization";
+import NewGrid from "./components/coming-soon/NewGrid";
+import NewProject from "./components/coming-soon/NewProject";
+import ImportRepository from "./components/coming-soon/ImportRepository";
+import Issue from "./components/coming-soon/Issue";
+import Pulls from "./components/coming-soon/Pulls";
 
 
 
@@ -99,7 +106,34 @@ const ProjectRoutes = ()=>{
             path:"/community",
             element:<Community/>
         },
-        
+        {
+            path:"/codespace",
+            element:<CodeSpace/>
+        },
+        {
+            path:"/organization",
+            element:<Organization/>
+        },
+        {
+            path:"/new grid",
+            element:<NewGrid/>
+        },
+        {
+            path:"/new-project",
+            element:<NewProject/>
+        },
+        {
+            path:"/import-repo",
+            element:<ImportRepository/>
+        },
+        {
+            path:"/issues",
+            element:<Issue/>
+        },
+        {
+            path:"/pulls",
+            element:<Pulls/>
+        },
     ]);
 
     return element;
