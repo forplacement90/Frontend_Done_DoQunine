@@ -7,3 +7,6 @@ const s3 = new AWS.S3();
 const S3_BUCKET = "logicstorebucket";
 
 module.exports = { s3, S3_BUCKET };
+
+
+

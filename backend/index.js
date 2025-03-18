@@ -5,13 +5,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const http = require("http");
 const { Server } = require("socket.io");
-
 const mainRouter = require("./routes/main.router");
 const geminiRouter = require("./routes/geminiRouter");
-
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
-
 const { initRepo } = require("./controllers/init");
 const { addRepo } = require("./controllers/add");
 const { commitRepo } = require("./controllers/commit");
@@ -69,51 +66,18 @@ yargs(hideBin(process.argv))
     }, (argv) => {
         commitRepo(argv.message);
     })
-    // .command("push", "Push commits to S3", {}, pushRepo)
-
-    .command("push <repoId>",
-        "Push a file to storage",
-        (yargs) => {
-            yargs.positional("repoId", {
-                describe: "store file in a perticular repository",
-                type: "string"
-            })
-        },
-        async (argv) => {
-            try {
-                await push(argv.repoId);
-                console.log(`Successfully pushed commits to repo: ${argv.repoId}`);
-            } catch (err) {
-                console.error("Failed to push commits:", err.message);
-            }
-        })
-
+    .command("push", "Push commits to S3", {}, pushRepo)
     .command("pull", "Pull commits from S3", {}, pullRepo)
-    // .command("revert <commitID>", "Revert to a specific commit", (yargs) => {
-    //     yargs.positional("commitID", {
-    //         describe: "Commit ID to revert to",
-    //         type: "string",
-    //     });
-    // }, (argv) => {
-    //     revertRepo(argv.commitID);
-    // })
-
-    .command("revert <file>",
-        "Revert files from storage",
-        (yargs) => {
-            yargs.positional("file", {
-                describe: "File revert from storage",
-                type: "string"
-            })
-        },
-        (argv) => {
-            revert(argv.file);
-        }
-    )
-
+    .command("revert <commitID>", "Revert to a specific commit", (yargs) => {
+        yargs.positional("commitID", {
+            describe: "Commit ID to revert to",
+            type: "string",
+        });
+    }, (argv) => {
+        revertRepo(argv.commitID);
+    })
     .demandCommand(1, "You need at least one command")
     .help().argv;
-
 
 
 

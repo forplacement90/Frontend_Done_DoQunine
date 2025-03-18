@@ -98,29 +98,7 @@ const ProjectRoutes = ()=>{
             path:"/Logic-Store-Docs",
             element:<LogicStoreDocs/>
         },
-        {
-            path: "/repo/delete/:id",
-            element:<DeleteRepo/>
-        },
-        {
-            path:"/community",
-            element:<Community/>
-        },
-
-        {
-            path: "/repo/update/:id",
-            element: <EditRepo/>
-        },
-        {
-            path: "/repo/:id/files",
-            element: <ViewFile/>
-        },
-        {
-            path: "/createIssue",
-            element: <CreateIssue/>
-        },
-
-
+       
         
         
     ]);
