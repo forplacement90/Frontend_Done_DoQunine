@@ -12,8 +12,8 @@ function Footer() {
           <a href="#" className="text-dark hover:underline">Terms</a>
           <a href="#" className="text-dark hover:underline">Privacy</a>
           <a href="#" className="text-dark hover:underline">Security</a>
-          <a href="#" className="text-dark hover:underline">Status</a>
-          <a href="#" className="text-dark hover:underline">Help</a>
+          <a href="/contact-us" className="text-dark hover:underline">contact us</a>
+          <a href="/community" className="text-dark hover:underline">Help</a>
         </div>
       </div>
     </footer>
