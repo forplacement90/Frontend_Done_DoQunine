@@ -13,7 +13,7 @@ import Repository from "./components/repository/Repository";
 import Message from "./components/message/Message";
 import Profile from "./components/Profile/Profile";
 import CreationPage from "./components/CreationPage/CreationPage";
-import { Error } from "./components/error/Error";
+
 import ViewRepo from "./components/view Repository/ViewRepo";
 import ChatBot from "./components/chatbot ai/ChatBot";
 import ContactUs from "./components/contact _us/ContactUs";
@@ -26,6 +26,7 @@ import NewProject from "./components/coming-soon/NewProject";
 import ImportRepository from "./components/coming-soon/ImportRepository";
 import Issue from "./components/coming-soon/Issue";
 import Pulls from "./components/coming-soon/Pulls";
+import NotFoundPage from "./components/error/NotFoundPage";
 
 
 
@@ -84,7 +85,7 @@ const ProjectRoutes = ()=>{
         },
         {
             path:"/error",
-            element:<Error/>
+            element: <NotFoundPage/>
         },
         {
             path:"/viewRepository/:repoId",
