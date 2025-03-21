@@ -20,18 +20,24 @@ const MainFile = () => {
   const [repoName, setRepoName] = useState("");
   const [repoDescription, setRepoDescription] = useState("");
 
-  useEffect(() => {
+useEffect(() => {
     const userId = localStorage.getItem("userId");
 
     const fetchRepositories = async () => {
       try {
-        const response = await fetch(`http://localhost:3002/repo/user/${userId}`);
+        const response = await fetch(
+          `http://localhost:3002/repo/user/${userId}`
+        );
         const data = await response.json();
-        setRepositories(data.repositories);
+        setRepositories(data.repositories || []);
       } catch (err) {
-        console.error("Error fetching repositories:", err);
+        console.error("Error while fetching repositories: ", err);
       }
     };
+   
+  
+
+  
 
     const fetchSuggestedRepositories = async () => {
       try {
@@ -56,26 +62,38 @@ const MainFile = () => {
 
   const confirmUpdateRepository = async () => {
     try {
-      const response = await fetch(`http://localhost:3002/repo/update/${editRepoId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: repoName, description: repoDescription }),
-      });
+        const response = await fetch(`http://localhost:3002/repo/update/${editRepoId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ description: repoDescription }),
+        });
 
-      if (response.ok) {
+        const data = await response.json(); // ✅ Parse JSON response correctly
+
+        if (!response.ok) {
+            throw new Error(data.error || "Failed to update repository");
+        }
+
+        console.log("Update Response:", data);
+
+        // ✅ Check the correct object structure
+        if (!data.repository || !data.repository._id) {
+            throw new Error("Invalid API Response: Repository data missing");
+        }
+
+        // ✅ Update state properly
         setRepositories((prevRepos) =>
-          prevRepos.map((repo) =>
-            repo._id === editRepoId ? { ...repo, name: repoName, description: repoDescription } : repo
-          )
+            prevRepos.map((repo) =>
+                repo._id === editRepoId ? { ...repo, description: repoDescription } : repo
+            )
         );
+
         setOpenEditModal(false);
-      } else {
-        alert("Error updating repository.");
-      }
     } catch (err) {
-      console.error("Error updating repository:", err);
+        console.error("Error updating repository:", err.message);
+        alert("Error updating repository: " + err.message);
     }
-  };
+};
 
   const handleOpenDeleteModal = (repoId) => {
     setSelectedRepoId(repoId);

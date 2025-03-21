@@ -83,7 +83,7 @@ const Profile = () => {
             </h1>
             <div className="mt-2 flex gap-4 flex-wrap justify-center lg:justify-start">
               <button className="bg-gray-700 px-4 py-2 rounded-lg hover:bg-blue-500 text-white">
-                Edit Profile
+                Edit Profile <link rel="stylesheet" href="/user-profile" />
               </button>
               <button
                 className="bg-green-700 px-4 py-2 rounded-lg hover:bg-green-800 text-white"

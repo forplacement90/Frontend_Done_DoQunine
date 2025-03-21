@@ -92,7 +92,10 @@ const ChatBot = () => {
                 ${showHistory ? "translate-x-0" : "translate-x-full"} 
                 md:translate-x-0 md:static lg:translate-x-0 lg:static ring-2`}
             >
-                <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center md:text-left bg-blue-300 rounded-2xl">Chat History</h2>
+<h2 className="text-2xl font-bold mb-6 text-gray-800 bg-blue-300 rounded-2xl text-center flex justify-center items-center">
+  Chat History
+</h2>
+
                 <ul className="flex-1 overflow-y-auto space-y-3">
                     {history.map((item, index) => (
                         <li 

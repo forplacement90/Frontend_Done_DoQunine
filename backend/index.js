@@ -1,4 +1,7 @@
-require("dotenv").config();
+
+
+
+    require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -7,6 +10,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const mainRouter = require("./routes/main.router");
 const geminiRouter = require("./routes/geminiRouter");
+const s3Router = require("./routes/s3Router");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 const { initRepo } = require("./controllers/init");
@@ -30,6 +34,7 @@ mongoose.connect(mongoURI)
 
 app.use("/", mainRouter);
 app.use("/api", geminiRouter);
+app.use("/api/s3", s3Router);
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
@@ -78,7 +83,6 @@ yargs(hideBin(process.argv))
     })
     .demandCommand(1, "You need at least one command")
     .help().argv;
-
 
 
 

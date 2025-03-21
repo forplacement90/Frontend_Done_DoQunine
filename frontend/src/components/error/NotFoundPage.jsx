@@ -5,6 +5,7 @@ const NotFoundPage = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-white font-serif">
       <div className="text-center">
         <h1 className="text-8xl font-bold text-gray-800">404</h1>
+        <h1 className="text-8xl font-bold text-gray-800 mt-1">Page Not Found !!</h1>
         <div
           className="bg-cover bg-center h-96 flex items-center justify-center"
           style={{
