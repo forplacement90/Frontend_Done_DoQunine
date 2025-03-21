@@ -27,7 +27,7 @@ import ImportRepository from "./components/coming-soon/ImportRepository";
 import Issue from "./components/coming-soon/Issue";
 import Pulls from "./components/coming-soon/Pulls";
 import NotFoundPage from "./components/error/NotFoundPage";
-import UpdateUserProfile from "./components/update profile/UpdateUserProfile";
+
 
 
 
