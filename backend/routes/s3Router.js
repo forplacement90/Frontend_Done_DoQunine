@@ -1,4 +1,5 @@
 const AWS = require("aws-sdk");
+AWS.config.update({ signatureVersion: 'v4' });
 const express = require("express");
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get("/files", async (req, res) => {
         const params = { 
           Bucket: S3_BUCKET, 
           Key: item.Key, 
-          Expires: 360000000 // URL expires in 1 hour
+          // Expires: 3600
         };
         
         const signedUrl = await s3.getSignedUrlPromise("getObject", params);
