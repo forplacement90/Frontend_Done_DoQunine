@@ -16,8 +16,7 @@ router.get("/files", async (req, res) => {
         const params = { 
           Bucket: S3_BUCKET, 
           Key: item.Key, 
-          Expires: 3600, // URL expires in 1 hour
-          // ResponseContentDisposition: "inline"
+          // Expires: 3600
         };
         
         const signedUrl = await s3.getSignedUrlPromise("getObject", params);
