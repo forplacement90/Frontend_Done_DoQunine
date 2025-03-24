@@ -85,10 +85,6 @@ const ProjectRoutes = ()=>{
             element:<CreationPage/>
         },
         {
-            path:"/error",
-            element: <NotFoundPage/>
-        },
-        {
             path:"/viewRepository/:repoId",
             element:<ViewRepo/>
         },
@@ -135,6 +131,10 @@ const ProjectRoutes = ()=>{
         {
             path:"/pulls",
             element:<Pulls/>
+        },
+        {
+            path:"*",
+            element: <NotFoundPage/>
         },
     ]);
 

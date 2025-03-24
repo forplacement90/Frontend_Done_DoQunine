@@ -77,6 +77,8 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SubComponent from "../SubComponent";
+import Footer from "../Footer";
 
 export default function S3FileList() {
   const [files, setFiles] = useState([]);
@@ -94,7 +96,9 @@ export default function S3FileList() {
   }, []);
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <>
+    <SubComponent />
+    <div className="p-6 bg-gray-100 min-h-screen mt-20">
       <h1 className="text-2xl font-bold mb-4">Pushed Files</h1>
       <div className="bg-white p-4 shadow-md rounded-lg">
         {files.length > 0 ? (
@@ -104,7 +108,7 @@ export default function S3FileList() {
                 <span>{file.name}</span>
                 <a
                   href={file.url}
-                  target="_blank"
+                  // target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
@@ -118,6 +122,8 @@ export default function S3FileList() {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 
