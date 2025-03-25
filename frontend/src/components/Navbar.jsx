@@ -21,10 +21,10 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
   };
 
   return (
-    <nav className="bg-blue-500 shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50 ">
+    <nav className="bg-[#1ecdb0] shadow-lg border-b-2 border-black px-3 py-2 flex justify-between items-center fixed top-0 w-full z-50 ">
       {/* Sidebar Toggle and Logo */}
       <div className="flex items-center text-xl mr-3">
-        <FaBars className="text-white cursor-pointer me-4" onClick={() => setSidebarToggle(!sidebarToggle)} />
+        <FaBars className="text-[#05342e] text-2xl cursor-pointer me-4" onClick={() => setSidebarToggle(!sidebarToggle)} />
           <Link to="/">
         <img src={logo} alt="Logo" height={30} width={50} className="rounded-bl-lg" />
         </Link>
@@ -33,10 +33,10 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
 
       {/* Search Bar */}
       <div className="relative w-64">
-        <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-white">
+        <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
           <FaSearch />
         </span>
-        <input type="text" className="w-full px-4 py-1 pl-10 rounded shadow outline-none text-black bg-gray-300 ring-2" placeholder="Search..." />
+        <input type="text" className="w-full px-4 py-1 pl-10 rounded shadow outline-none text-black bg-[#e9e9e9] ring-1" placeholder="Search..." />
         
       </div>
 
@@ -44,7 +44,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
       <div className="flex items-center gap-x-5">
       <DropdownButton activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown} />
         <Link to="/message">
-    <FaBell className="w-6 h-6 text-white cursor-pointer" />
+    <FaBell className="w-6 h-6 text-[#05342e] cursor-pointer" />
   </Link>
   <UserProfileMenu activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown} logout={logout} />
       </div>
@@ -56,18 +56,18 @@ const DropdownButton = ({ activeDropdown, setActiveDropdown }) => {
   const isOpen = activeDropdown === "dropdown";
 
   const menuItems = [
-    { icon: <GoProjectSymlink />, text: "New repository", link:"/repo/create" },
-    { icon: <RiGitPullRequestLine />, text: "Import repository", link: "/import-repo" },
-    { icon: <GoProjectSymlink />, text: "New codespace", link: "/codespace" },
-    { icon: <GoProjectSymlink />, text: "New gist", link: "/new grid" },
-    { icon: <GoProjectSymlink />, text: "New organization", link: "/organization" },
-    { icon: <GoProjectSymlink />, text: "New project", link: "/new-project" },
+    { icon: <GoProjectSymlink />, text: "New Repository", link:"/repo/create" },
+    { icon: <RiGitPullRequestLine />, text: "Import Repository", link: "/import-repo" },
+    { icon: <GoProjectSymlink />, text: "New Codespace", link: "/codespace" },
+    { icon: <GoProjectSymlink />, text: "New Gist", link: "/new grid" },
+    { icon: <GoProjectSymlink />, text: "New Organization", link: "/organization" },
+    { icon: <GoProjectSymlink />, text: "New Project", link: "/new-project" },
   ];
 
   return (
     <div className="relative">
     <div
-      className="text-white flex items-center cursor-pointer ml-2"
+      className="text-[#05342e] flex items-center cursor-pointer ml-2"
       onClick={() => setActiveDropdown(isOpen ? null : "dropdown")}
     >
       <FaPlus className="w-6 h-6" />
@@ -75,10 +75,10 @@ const DropdownButton = ({ activeDropdown, setActiveDropdown }) => {
     </div>
 
       {isOpen && (
-        <div className="absolute bg-blue-200 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
-          <ul className="text-gray-800 font-bold">
+        <div className="absolute bg-[#dbdada] rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-gray-500">
+          <ul className="text-[#030303] ">
             {menuItems.map((item, index) => (
-              <li key={index} className="mb-2 hover:bg-blue-500 py-2 flex items-center rounded">
+              <li key={index} className="mb-2 hover:bg-[#63c1b3] hover:text-[#05342e] py-2 flex items-center rounded">
                 {item.icon} <a href={item.link} className="ml-2">{item.text}</a>
               </li>
             ))}
@@ -106,19 +106,19 @@ const UserProfileMenu = ({ activeDropdown, setActiveDropdown, logout }) => {
 
   return (
     <div className="relative">
-      <div className="text-white flex items-center cursor-pointer" onClick={() => setActiveDropdown(isOpen ? null : "profile")}>
+      <div className="text-[#05342e] flex items-center cursor-pointer" onClick={() => setActiveDropdown(isOpen ? null : "profile")}>
         <FaUserCircle className="w-6 h-6" />
       </div>
 
       {isOpen && (
-        <div className="absolute bg-blue-200 rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-red-500">
-          <ul className="text-gray-700 font-bold">
+        <div className="absolute bg-[#dbdada] rounded-lg shadow w-60 top-full right-0 mt-2 border-2 border-gray-500">
+          <ul className="text-[#030303] ">
             {menuItems.map((item, index) => (
-              <li key={index} className="mb-2 hover:bg-blue-500 py-1 flex items-center rounded">
+              <li key={index} className="mb-2 hover:bg-[#63c1b3] hover:text-[#05342e] py-1 flex items-center rounded">
                 {item.icon} <a href={item.link} className="ml-2">{item.text}</a>
               </li>
             ))}
-            <li className="mb-2 hover:bg-blue-500 py-1 flex items-center rounded cursor-pointer text-gray-900" onClick={logout}>
+            <li className="mb-2 hover:bg-[#63c1b3] hover:text-[#05342e] py-1 flex items-center rounded cursor-pointer font-bold" onClick={logout}>
               <FaSignOutAlt /> <span className="ml-2">Logout</span>
             </li>
           </ul>
