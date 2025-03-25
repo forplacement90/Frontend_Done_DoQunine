@@ -158,12 +158,12 @@ useEffect(() => {
       </aside>
 
       <main className="col-span-2">
-        <h1 className="text-5xl font-bold mb-6 text-black">Your Repositories</h1>
+        <h1 className="text-3xl font-bold mb-6 text-black"><u>Your Repositories</u></h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filteredRepos.map((repo) => (
             <div
               key={repo._id}
-              className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 flex justify-between items-center"
+              className="bg-blue-300 p-4 rounded-lg  ring-1 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 flex justify-between items-center shadow-xl shadow-green-500/50"
             >
               <div>
                 <h2 className="text-2xl font-bold  ">{repo.name}</h2>
