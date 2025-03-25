@@ -36,7 +36,7 @@ const Navbar = ({ sidebarToggle, setSidebarToggle }) => {
         <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
           <FaSearch />
         </span>
-        <input type="text" className="w-full px-4 py-1 pl-10 rounded shadow outline-none text-black bg-[#e9e9e9] ring-1" placeholder="Search..." />
+        <input type="text" className="w-full px-4 py-1 pl-10 rounded-2xl shadow outline-none text-black bg-[#e9e9e9]  " placeholder="Search..." />
         
       </div>
 
@@ -142,14 +142,14 @@ const Sidebar = ({ sidebarToggle }) => {
  
 
   return (
-    <div className={  ` bg-blue-200 fixed h-full px-4 py-1 w-60 transition-all duration-300 mt-8 border-2 border-red-500 ${sidebarToggle ? "translate-x-0" : "-translate-x-64"}`}>
+    <div className={  ` bg-[#dbdada] fixed h-full px-4 py-1 w-60 transition-all duration-300 mt-8 border-2 border-gray-500 ${sidebarToggle ? "translate-x-0" : "-translate-x-64"}`}>
       <div className="my-2 mb-5 mt-10">
         <img src={logo} alt="Logo" height={100} width={100} className="rounded-full" />
       </div>
       <hr />
-      <ul className="mt-3 text-gray-700 font-bold">
+      <ul className="mt-3 text-[#030303] ">
         {menuItems.map((item, index) => (
-          <li key={index} className="mb-2 hover:bg-blue-500 py-1 flex items-center rounded">
+          <li key={index} className="mb-2 hover:bg-[#63c1b3] hover:text-[#05342e] py-1 flex items-center rounded">
             {item.icon} <a href={item.link} className="ml-2">{item.text}</a>
           </li>
         ))}

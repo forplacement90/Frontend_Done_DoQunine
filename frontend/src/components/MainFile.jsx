@@ -131,14 +131,14 @@ useEffect(() => {
     : repositories;
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 border-4">
-      <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
-        <button className="flex items-center bg-blue-300 px-4 py-2 rounded-lg w-fit mb-4 shadow-md">
+    <div className="min-h-screen  font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 ">
+      <aside className="bg-[#f6f6f6] p-4 rounded-lg col-span-1">
+        <button className="flex items-center bg-[#e8e4e4] text-[#047361] px-4 py-2 rounded-lg w-fit mb-4 shadow-md">
           <CgProfile className="mr-2" />
           <UserDetail />
         </button>
-        <h2 className="text-xl font-bold mb-2 text-left">Suggested Repository</h2>
-        <div className="relative mb-4">
+        <h2 className="text-xl font-bold mb-10 text-left">Suggested Repository</h2>
+        {/* <div className="relative mb-4">
           <FaSearch className="absolute left-3 top-3 text-blue-100" />
           <input
             type="text"
@@ -147,8 +147,8 @@ useEffect(() => {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 pr-4 py-2 w-full rounded-lg text-blue-200 border border-blue-200"
           />
-        </div>
-        <ul className="text-white-600">
+        </div> */}
+        <ul className="text-[#595959]">
           {suggestedRepositories.map((repo) => (
             <div key={repo._id}>
               <h4 className="w-full flex items-center text-center">{repo.name}</h4>
@@ -195,12 +195,12 @@ useEffect(() => {
         </div>
       </main>
 
-      <aside className="bg-blue-400 p-4 rounded-lg col-span-1">
+      <aside className="bg-[#f6f6f6] p-4 rounded-lg col-span-1">
         <h2 className="text-lg font-bold mb-4">Upcoming Events</h2>
-        <div className="bg-blue-200 p-4 rounded-lg mb-4 hover:bg-indigo-500">Tech Conference - Dec 15</div>
-       <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500 mb-4">Developer Meetup - Dec 25</div>
-       <div className="bg-blue-200 p-4 rounded-lg hover:bg-indigo-500">Hackathon - Jan 5</div>
-    </aside>
+        <div className="bg-[#cac7c7] p-4 rounded-lg mb-4 hover:bg-[#8d8989]">Tech Conference - Dec 15</div>
+        <div className="bg-[#cac7c7] p-4 rounded-lg hover:bg-[#8d8989] mb-4">Developer Meetup - Dec 25</div>
+        <div className="bg-[#cac7c7] p-4 rounded-lg hover:bg-[#8d8989]">Hackathon - Jan 5</div>
+      </aside>
 
       <Dialog open={openDeleteModal} onClose={handleCloseDeleteModal}>
         <DialogTitle>Confirm Deletion</DialogTitle>
