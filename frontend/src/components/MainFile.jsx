@@ -131,76 +131,83 @@ useEffect(() => {
     : repositories;
 
   return (
-    <div className="min-h-screen  font-bold p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 ">
-      <aside className="bg-[#f6f6f6] p-4 rounded-lg col-span-1">
-        <button className="flex items-center bg-[#e8e4e4] text-[#047361] px-4 py-2 rounded-lg w-fit mb-4 shadow-md">
+    <div className="min-h-screen bg-gray-100 text-gray-900 p-6 grid grid-cols-4 gap-6 ">
+   <aside className="bg-white p-6 rounded-lg shadow-md col-span-1">    
+    <button className="flex items-center bg-gray-200 px-4 py-2 rounded-lg mb-4">
           <CgProfile className="mr-2" />
           <UserDetail />
         </button>
-        <h2 className="text-xl font-bold mb-10 text-left">Suggested Repository</h2>
-        {/* <div className="relative mb-4">
-          <FaSearch className="absolute left-3 top-3 text-blue-100" />
+        <h2 className="text-lg font-semi-bold mb-2 ">Suggested Repository</h2>
+        <div className="relative mb-4">
+          <FaSearch className="absolute left-3 top-3 text-gray-400" />
           <input
             type="text"
             value={searchQuery}
             placeholder="Search..."
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-4 py-2 w-full rounded-lg text-blue-200 border border-blue-200"
+            className="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300"
           />
-        </div> */}
-        <ul className="text-[#595959]">
-          {suggestedRepositories.map((repo) => (
-            <div key={repo._id}>
-              <h4 className="w-full flex items-center text-center">{repo.name}</h4>
-            </div>
+        </div>
+        <ul className="text-white-600">
+        {suggestedRepositories.map((repo) => (
+            <li key={repo._id} className="py-2 px-3 bg-gray-200 rounded-md mb-2">
+              {repo.name}
+            </li>
           ))}
         </ul>
       </aside>
 
-      <main className="col-span-2">
-        <h1 className="text-3xl font-bold mb-6 text-black"><u>Your Repositories</u></h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {filteredRepos.map((repo) => (
-            <div
-              key={repo._id}
-              className="bg-blue-300 p-4 rounded-lg  ring-1 transition hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 flex justify-between items-center shadow-xl shadow-green-500/50"
-            >
-              <div>
-                <h2 className="text-2xl font-bold  ">{repo.name}</h2>
-                <p className="text-gray-700">{repo.description}</p>
-                <a href={`/viewRepository/${repo._id}`} className="text-white underline mt-2 inline-block">
-                  VIEW REPOSITORY
-                </a>
-
-              </div>
-              <Button
-                className="!bg-green-600 !text-white !mr-2"
-                onClick={() => handleOpenEditModal(repo)}
-                variant="contained"
-                startIcon={<EditIcon />}
-              >
-                Edit
-              </Button>
-              <Button
-                className="!bg-red-600 !text-white "
-                onClick={() => handleOpenDeleteModal(repo._id)}
-                variant="contained"
-                startIcon={<DeleteIcon />}
-              >
-                Delete
-              </Button>
-             
-            </div>
-          ))}
+      <main className="col-span-2 p-6 bg-gray-100 rounded-lg shadow">
+  <h1 className="text-2xl font-bold mb-6 text-gray-800 underline">Your Repositories</h1>
+  <div className="grid gap-4">
+    {filteredRepos.map((repo) => (
+      <div
+        key={repo._id}
+        className="bg-white p-4 rounded-lg shadow-xl flex justify-between items-center border border-gray-200"
+      >
+        <div className="flex-1">
+          <h2 className="text-lg font-semibold text-gray-900">{repo.name}</h2>
+          <p className="text-gray-600 text-sm">{repo.description}</p>
+          <a
+            href={`/viewRepository/${repo._id}`}
+            className="text-blue-600 hover:text-blue-800 hover:underline font-medium mt-2 inline-block"
+          >
+            View Repository
+          </a>
         </div>
-      </main>
 
-      <aside className="bg-[#f6f6f6] p-4 rounded-lg col-span-1">
-        <h2 className="text-lg font-bold mb-4">Upcoming Events</h2>
-        <div className="bg-[#cac7c7] p-4 rounded-lg mb-4 hover:bg-[#8d8989]">Tech Conference - Dec 15</div>
-        <div className="bg-[#cac7c7] p-4 rounded-lg hover:bg-[#8d8989] mb-4">Developer Meetup - Dec 25</div>
-        <div className="bg-[#cac7c7] p-4 rounded-lg hover:bg-[#8d8989]">Hackathon - Jan 5</div>
-      </aside>
+        <div className="flex gap-3">
+  <Button
+    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none "
+    onClick={() => handleOpenEditModal(repo)}
+    variant="outlined"
+    startIcon={<EditIcon className="text-[#217ad3]" />}
+  >
+    Edit
+  </Button>
+
+  <Button
+    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none"
+    onClick={() => handleOpenDeleteModal(repo._id)}
+    variant="outlined"
+    startIcon={<DeleteIcon className="text-[#217ad3]" />}
+  >
+    Delete
+  </Button>
+</div>
+
+      </div>
+    ))}
+  </div>
+</main>
+
+
+      <aside className="bg-white p-6 rounded-lg shadow-md col-span-1">
+        <h2 className="text-lg font-semibold mb-4">Upcoming Events</h2>
+        <div className="p-3 bg-gray-200 rounded-md mb-2">Tech Conference - Dec 15</div>
+       <div className="p-3 bg-gray-200 rounded-md mb-2">Developer Meetup - Dec 25</div>
+       <div className="p-3 bg-gray-200 rounded-md mb-2">Hackathon - Jan 5</div>
+    </aside>
 
       <Dialog open={openDeleteModal} onClose={handleCloseDeleteModal}>
         <DialogTitle>Confirm Deletion</DialogTitle>

@@ -23,13 +23,20 @@ const Dashboard = () => {
 
      
     </div>
-      <div className="flex items-center justify-center mt-10  bg-white">
-            <div className="text-center ">
-           <h1 className="text-5xl font-bold md:text-3xl lg:text-3xl xl:text-5xl gradient-title animate-gradient mt-11">
-             Create Repository to Store your Logic . 🌍💡
-                 </h1>
-        <br />
-           <h2 className="text-3xl font-bold md:text-3xl lg:text-3xl xl:text-3xl mb-8 mt-5">Growing with Every Line of Code</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center mt-12 " >
+    <div className="text-center bg-white bg-opacity-90 p-10 rounded-lg shadow-xl">
+        <h1 className="text-5xl font-bold md:text-4xl lg:text-4xl xl:text-5xl gradient-title animate-gradient mt-5">
+            Build Your Next Big Idea 🚀💡
+        </h1>
+        <h2 className="text-3xl font-semibold md:text-2xl lg:text-2xl xl:text-3xl mt-4">
+            Empowering Developers, One Repo at a Time
+        </h2>
+        <p className="text-lg text-gray-700 md:text-base lg:text-lg xl:text-xl mt-2 mb-15">
+            Store, manage, and collaborate on your code seamlessly. Start your journey today! 🌍
+        </p>
+        
+   
+
       
     <MainFile/>
   
