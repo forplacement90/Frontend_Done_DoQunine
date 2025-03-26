@@ -34,8 +34,8 @@ const Signup = () => {
   };
 
   const getInputClass = (field) => {
-    if (!touched[field]) return "w-full pl-10 p-3 rounded-lg focus:ring-2 focus:outline-none text-gray-700 border-2";
-    return `w-full pl-10 p-3 rounded-lg focus:ring-2 focus:outline-none text-gray-700 border-2 ${
+    if (!touched[field]) return "w-full pl-10 p-3 rounded-lg focus:ring focus:outline-none text-gray-700 border-1";
+    return `w-full pl-10 p-3 rounded-lg focus:ring focus:outline-none text-gray-700 border-1 ${
       errors[field] ? "border-red-500 focus:ring-red-500" : "border-green-500 focus:ring-green-500"
     }`;
   };
@@ -59,19 +59,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 p-6">
-      <div className="bg-blue-400 text-white p-8 rounded-2xl shadow-2xl flex max-w-4xl w-full ring-black-200">
-        <div className="hidden md:flex flex-col justify-center items-center w-1/2 p-6 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl">
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="bg-gray-100 text-black p-8 rounded-2xl shadow-2xl flex max-w-4xl w-full  ">
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 p-6 bg-gray-300 rounded-2xl ">
           <img className="w-48 h-48" src={logo} alt="Logo" />
           <p className="text-center mt-4 text-sm font-light">
             You Are Few Minutes Away To Boost Your Skills With <span className="font-semibold">Sourav Kumar & Sujit Som</span>
           </p>
         </div>
         <div className="w-full md:w-1/2 p-6">
-          <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
+          <h2 className="text-2xl font-semibold text-center mb-4">Sign Up</h2>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="relative">
-              <FaUser className="absolute top-3 left-3 text-white" />
+              <FaUser className="absolute top-3 left-3 text-black" />
               <input
                 name="username"
                 value={formData.username}
@@ -80,7 +80,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Username"
               />
-              <p className="text-yellow-300 text-sm">{errors.username}</p>
+              <p className="text-red-500 text-sm">{errors.username}</p>
             </div>
 
             <div className="relative">
@@ -93,11 +93,11 @@ const Signup = () => {
                 type="email"
                 placeholder="Email"
               />
-              <p className="text-yellow-300 text-sm">{errors.email}</p>
+              <p className="text-red-500 k text-sm">{errors.email}</p>
             </div>
 
             <div className="relative">
-              <FaLock className="absolute top-3 left-3 text-white" />
+              <FaLock className="absolute top-3 left-3 text-black" />
               <input
                 name="password"
                 value={formData.password}
@@ -106,12 +106,12 @@ const Signup = () => {
                 type="password"
                 placeholder="Password"
               />
-              <p className="text-yellow-300 text-sm">{errors.password}</p>
+              <p className="text-red-500  text-sm">{errors.password}</p>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-4 flex justify-center items-center gap-2 transition duration-200"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-black font-semibold py-3 rounded-lg mt-4 flex justify-center items-center gap-2 transition duration-200"
               disabled={loading}
             >
               {loading ? "Signing up..." : <><FaUserPlus /> Sign Up</>}

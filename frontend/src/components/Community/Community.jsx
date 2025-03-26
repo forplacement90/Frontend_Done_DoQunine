@@ -19,9 +19,9 @@ export default function Community() {
           href="https://discord.gg/fgpsSrT4"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors duration-300 px-6 py-3 text-lg rounded-lg shadow-md"
+          className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors duration-300 px-6 py-3 text-lg rounded-lg shadow-md ring-1"
         >
-          <FaDiscord className="text-2xl text-gray-600" /> Join Now
+          <FaDiscord className="text-2xl text-white" /> Join Now
         </a>
       </div>
     </div>

@@ -44,9 +44,9 @@ const Organization = () => {
   return (
     <>
     <SubComponent/>
-    <div className="min-h-screen bg-blue-300 p-6 flex justify-center items-start mt-13">
+    <div className="min-h-screen bg-gray-100 p-6 flex justify-center items-start mt-20">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-gray-100 p-6 rounded-lg shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-4">
             <h2 className="text-xl font-semibold">Create Organization</h2>
             <input
@@ -81,7 +81,7 @@ const Organization = () => {
               onChange={handleChange}
               value={form.repositories}
             />
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded w-full">
+            <button type="submit" className="bg-blue-400 text-white px-4 py-2 rounded w-50">
               Create Organization
             </button>
           </form>
