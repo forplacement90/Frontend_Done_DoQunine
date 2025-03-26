@@ -18,7 +18,7 @@ export default function NewGrid() {
             transition={{ duration: 1 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold mb-4">Coming Soon</h1>
+            <h1 className="text-5xl font-bold mb-4">Coming Soon..</h1>
             <p className="text-lg text-gray-900 mb-6">We're working on something amazing. Stay tuned!</p>
             <motion.button
               whileHover={{ scale: 1.1 }}

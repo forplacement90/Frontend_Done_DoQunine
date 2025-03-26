@@ -61,7 +61,7 @@ const Repository = () => {
         <p className="text-sm mb-4 text-center sm:text-left">
           A repository contains all project files, including the revision history.
         </p>
-        <hr className="border-gray-600 mb-4 ring-2" />
+        <hr className="border-gray-600 mb-4 ring-1" />
         <p className="text-sm mb-2">Required fields are marked with an asterisk (*).</p>
 
         <form onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ const Repository = () => {
                   id="owner"
                   value={owner}
                   disabled // Makes the field non-editable
-                  className="w-full p-2 mt-2 bg-gray-300 border rounded-md text-gray-900 ring-2 cursor-not-allowed"
+                  className="w-full p-2 mt-2 bg-gray-200  rounded-md text-gray-900 ring cursor-not-allowed"
                 />
               </div>
               <div>
@@ -86,7 +86,7 @@ const Repository = () => {
                   placeholder="Repository name"
                   id="name"
                   required
-                  className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+                  className="w-full p-2 mt-2 bg-gray-200  rounded-md text-gray-900 ring"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   autoComplete="off"
@@ -101,14 +101,14 @@ const Repository = () => {
                 name="description"
                 placeholder="Description"
                 id="description"
-                className="w-full p-2 mt-2 bg-blue-200 border rounded-md text-gray-900 ring-2"
+                className="w-full p-2 mt-2 bg-gray-200  rounded-md text-gray-950 ring"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 autoComplete="off"
               />
             </div>
 
-            <div className="p-4 bg-blue-200 rounded-lg shadow-md border-3 border-black">
+            <div className="p-4 bg-gray-100 rounded-lg shadow-md ring  border-black">
               <h2 className="text-lg font-bold mb-3 text-gray-900">Select Repository Visibility</h2>
 
               <label className={`flex items-center space-x-2 cursor-pointer p-2 rounded-md border-2 ${visibility === true ? "border-green-500 bg-green-100" : "border-transparent"} hover:border-green-500 transition`}>
@@ -136,7 +136,7 @@ const Repository = () => {
               </label>
             </div>
 
-            <div className="p-4 bg-blue-200 rounded-lg shadow-md border-2 border-black">
+            <div className="p-4 bg-gray-200 rounded-lg shadow-md ring border-black">
               <h2 className="text-lg font-semibold mb-3 text-gray-950">Initialize this repository with:</h2>
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input

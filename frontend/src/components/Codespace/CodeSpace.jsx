@@ -3,7 +3,7 @@ import { Play, Save, Trash } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
-import { ResizablePanelGroup, ResizablePanel } from "../ui/resizable";
+
 import Footer from "../Footer";
 import SubComponent from "../SubComponent";
 
@@ -41,16 +41,16 @@ export default function CodeSpace() {
   return (
     <>
     <SubComponent/>
-    <div className="min-h-screen p-4 bg-blue-200 text-white mt-14 ">
+    <div className="min-h-screen p-4 bg-gray-200 text-gray-950 mt-14 ">
       <h1 className="text-3xl font-bold mb-4 text-center text-gray-950">Logic Store CodeSpace</h1>
 
       {/* Responsive Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-[75vh]">
         {/* Code Editor Panel */}
-        <Card className="bg-blue-600">
+        <Card className="bg-gray-100">
           <CardContent className="p-4 h-full">
             <Textarea
-              className="w-full h-full text-white bg-blue-500 border-none resize-none"
+              className="w-full h-full text-white bg-gray-100 border-none resize-none"
               value={code}
               onChange={(e) => setCode(e.target.value)}
               placeholder="Write your HTML + Tailwind CSS + JavaScript code here..."
@@ -75,10 +75,10 @@ export default function CodeSpace() {
         <Button onClick={runCode} className="bg-green-600 flex items-center gap-2">
           <Play size={16} /> Run
         </Button>
-        <Button onClick={saveAndShowOutput} className="bg-blue-600 flex items-center gap-2">
+        <Button onClick={saveAndShowOutput} className="bg-blue-400 flex items-center gap-2">
           <Save size={16} /> Save & Show Output
         </Button>
-        <Button onClick={clearCode} className="bg-red-600 flex items-center gap-2">
+        <Button onClick={clearCode} className="bg-red-500 flex items-center gap-2">
           <Trash size={16} /> Clear
         </Button>
       </div>
