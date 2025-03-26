@@ -18,8 +18,8 @@ const Signup = () => {
 
   const validate = () => {
     let tempErrors = {};
-    if (!formData.username || formData.username.length < 3)
-      tempErrors.username = "Username must be at least 3 characters";
+    if (!formData.username || formData.username.length < 6)
+      tempErrors.username = "Username must be at least 6 characters";
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       tempErrors.email = "Invalid email format";
     if (!formData.password || formData.password.length < 6)
