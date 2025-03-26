@@ -170,7 +170,7 @@ useEffect(() => {
           <p className="text-gray-600 text-sm">{repo.description}</p>
           <a
             href={`/viewRepository/${repo._id}`}
-            className="text-blue-600 hover:text-blue-800 font-medium mt-2 inline-block"
+            className="text-blue-600 hover:text-blue-800 hover:underline font-medium mt-2 inline-block"
           >
             View Repository
           </a>
@@ -178,19 +178,19 @@ useEffect(() => {
 
         <div className="flex gap-3">
   <Button
-    className="!text-blue-600  !px-3 !py-1.5 rounded-lg flex items-center gap-1 "
+    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none "
     onClick={() => handleOpenEditModal(repo)}
     variant="outlined"
-    startIcon={<EditIcon className="text-blue-600" />}
+    startIcon={<EditIcon className="text-[#217ad3]" />}
   >
     Edit
   </Button>
 
   <Button
-    className="!text-blue-600 !px-3 !py-1.5 rounded-lg flex items-center gap-1"
+    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none"
     onClick={() => handleOpenDeleteModal(repo._id)}
     variant="outlined"
-    startIcon={<DeleteIcon className="text-blue-600" />}
+    startIcon={<DeleteIcon className="text-[#217ad3]" />}
   >
     Delete
   </Button>
