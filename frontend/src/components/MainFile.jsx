@@ -131,7 +131,7 @@ useEffect(() => {
     : repositories;
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 p-6 grid grid-cols-4 gap-6">
+    <div className="min-h-screen bg-gray-100 text-gray-900 p-6 grid grid-cols-4 gap-6 ">
    <aside className="bg-white p-6 rounded-lg shadow-md col-span-1">    
     <button className="flex items-center bg-gray-200 px-4 py-2 rounded-lg mb-4">
           <CgProfile className="mr-2" />
@@ -163,7 +163,7 @@ useEffect(() => {
     {filteredRepos.map((repo) => (
       <div
         key={repo._id}
-        className="bg-white p-4 rounded-lg shadow flex justify-between items-center border border-gray-200"
+        className="bg-white p-4 rounded-lg shadow-xl flex justify-between items-center border border-gray-200"
       >
         <div className="flex-1">
           <h2 className="text-lg font-semibold text-gray-900">{repo.name}</h2>
