@@ -20,7 +20,7 @@ const MainFile = () => {
   const [repoName, setRepoName] = useState("");
   const [repoDescription, setRepoDescription] = useState("");
 
-useEffect(() => {
+  useEffect(() => {
     const userId = localStorage.getItem("userId");
 
     const fetchRepositories = async () => {
@@ -137,7 +137,7 @@ useEffect(() => {
           <CgProfile className="mr-2" />
           <UserDetail />
         </button>
-        <h2 className="text-lg font-semi-bold mb-2 ">~ Suggested Repository ~</h2>
+        <h2 className="text-lg font-semi-bold mb-4 ">~ Suggested Repository ~</h2>
         <div className="relative mb-4">
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
           <input

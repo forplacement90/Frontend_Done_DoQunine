@@ -41,7 +41,7 @@ export default function CodeSpace() {
   return (
     <>
     <SubComponent/>
-    <div className="min-h-screen p-4 bg-gray-200 text-gray-950 mt-14 ">
+    <div className="min-h-screen p-4 bg-white text-gray-950 mt-14 ">
       <h1 className="text-3xl font-bold mb-4 text-center text-gray-950">Logic Store CodeSpace</h1>
 
       {/* Responsive Grid Layout */}
