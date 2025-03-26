@@ -111,7 +111,7 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-black font-semibold py-3 rounded-lg mt-4 flex justify-center items-center gap-2 transition duration-200"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-4 flex justify-center items-center gap-2 transition duration-200"
               disabled={loading}
             >
               {loading ? "Signing up..." : <><FaUserPlus /> Sign Up</>}

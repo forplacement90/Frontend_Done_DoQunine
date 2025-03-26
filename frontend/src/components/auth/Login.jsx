@@ -86,7 +86,7 @@ const Login = ({ isSignup }) => {
               </div>
             )}
             <div className="relative">
-              <FaEnvelope className="absolute top-3 left-3 text-white" />
+              <FaEnvelope className="absolute top-3 left-3 text-black" />
               <input
                 name="email"
                 value={formData.email}
@@ -98,7 +98,7 @@ const Login = ({ isSignup }) => {
               <p className="text-red-500 text-sm">{errors.email}</p>
             </div>
             <div className="relative">
-              <FaLock className="absolute top-3 left-3 text-white" />
+              <FaLock className="absolute top-3 left-3 text-black" />
               <input
                 name="password"
                 value={formData.password}
