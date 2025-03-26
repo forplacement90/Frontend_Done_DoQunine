@@ -102,12 +102,12 @@ const Profile = () => {
             {repositories.map((repo, index) => (
               <div
                 key={index}
-                className="bg-blue-300 p-4 rounded-lg shadow-md ring-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500"
+                className="bg-gray-100 border-gray-200 p-4 rounded-lg shadow-md  transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 "
               >
-                <h2 className="text-xl font-bold">{repo.name}</h2>
-                <p className="text-white-900">{repo.description}</p>
-                <a href={`/viewRepository/${repo._id}`} className="text-white underline mt-2 inline-block">
-                  VIEW REPOSITORY
+                <h2 className="text-lg font-semibold">{repo.name}</h2>
+                <p className="text-[#767575] text-sm">{repo.description}</p>
+                <a href={`/viewRepository/${repo._id}`} className="text-blue-600 hover:text-blue-800 hover:underline mt-2 inline-block">
+                  View Repository
                 </a>
                   
                 <span
@@ -121,7 +121,7 @@ const Profile = () => {
         </div>
 
       {/* Contribution Heatmap */}
-<div className="mt-8 p-6 bg-blue-500 rounded-lg w-full max-w-7xl border-2">
+<div className="mt-8 p-6 bg-[#b4b3b3] rounded-lg w-full max-w-7xl ">
   <h3 className="text-lg font-semibold mb-4 text-center lg:text-left text-gray-900">
     Recent Contributions
   </h3>

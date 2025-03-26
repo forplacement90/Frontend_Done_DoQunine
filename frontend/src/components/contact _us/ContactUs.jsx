@@ -46,8 +46,8 @@ const ContactUs = () => {
   return (
     <>
     <SubComponent/>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-300 p-6 mt-5">
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6 mt-5">
+      <div className="bg-gray-100 shadow-lg rounded-lg p-6 w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
           Contact Us
         </h2>

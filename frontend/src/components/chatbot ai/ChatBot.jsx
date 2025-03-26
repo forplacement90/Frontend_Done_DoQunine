@@ -50,24 +50,24 @@ const ChatBot = () => {
     return (
         <>
         <SubComponent/>
-        <div className="w-full h-screen flex flex-col md:flex-row bg-gray-300 p-4 md:p-6 rounded-lg shadow-lg relative  mt-13">
+        <div className="w-full h-screen flex flex-col md:flex-row bg-white p-4 md:p-6 rounded-lg shadow-lg relative  mt-13">
             {/* Chat Section */}
-            <div className="flex-1 flex flex-col p-6 bg-white rounded-lg shadow-lg border border-gray-300 ring-2 mr-3">
+            <div className="flex-1 flex flex-col p-6 bg-gray-50 rounded-lg shadow-lg border border-gray-300 ring-1 mr-3">
                 <div className="flex-1 overflow-y-auto p-4 border-b border-gray-300">
-                    <p className={`bg-blue-100 text-blue-800 rounded-lg p-4 mb-3 ${qnsClass} font-semibold`}>{qns}</p>
+                    <p className={`bg-gray-300 text-blue-600 rounded-lg p-4 mb-3 ${qnsClass} font-semibold`}>{qns}</p>
                     <p className={`p-4 text-gray-700 bg-gray-200 rounded-lg shadow-sm ${qnsClass}`}>{ans}</p>
                     <div className="flex justify-center mt-4">
                         <HashLoader loading={loading} color="#4A90E2" />
                     </div>
                 </div>
 
-                <div className="w-full rounded-lg shadow-md border-t border-gray-300 flex flex-col items-center p-4 bg-gray-50">
+                <div className="w-full rounded-lg shadow-md flex flex-col items-center p-4 bg-gray-100">
                     <input
                         type="text"
                         placeholder="Ask your AI friend..."
                         value={prompt}
                         onChange={handleInput}
-                        className="w-full border border-gray-300 outline-none p-4 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 bg-blue-200 ring-1"
+                        className="w-full  outline-none p-4 rounded-xl text-lg bg-gray-200"
                     />
                     <button 
                         onClick={getData} 
@@ -90,9 +90,9 @@ const ChatBot = () => {
             {/* History Section */}
             <div className={`w-full md:w-1/4 lg:w-1/4 h-full border-l border-gray-300 overflow-y-auto p-6 bg-gray-50 rounded-lg shadow-lg fixed right-0 top-0 transition-transform duration-300 ease-in-out 
                 ${showHistory ? "translate-x-0" : "translate-x-full"} 
-                md:translate-x-0 md:static lg:translate-x-0 lg:static ring-2`}
+                md:translate-x-0 md:static lg:translate-x-0 lg:static ring-1`}
             >
-<h2 className="text-2xl font-bold mb-6 text-gray-800 bg-blue-300 rounded-2xl text-center flex justify-center items-center">
+<h2 className="text-2xl font-bold mb-6 text-gray-800 bg-gray-300 rounded-2xl text-center flex justify-center items-center">
   Chat History
 </h2>
 
@@ -100,7 +100,7 @@ const ChatBot = () => {
                     {history.map((item, index) => (
                         <li 
                             key={index} 
-                            className="p-4 bg-white rounded-lg shadow-1xl cursor-pointer hover:bg-blue-300 border border-gray-200"
+                            className="p-4 bg-white rounded-lg shadow-1xl cursor-pointer hover:bg-gray-100 border border-gray-200"
                             onClick={() => handleHistoryClick(item)}
                         >
                             <p className="font-semibold text-gray-800">Q: {item.question}</p>

@@ -137,7 +137,7 @@ useEffect(() => {
           <CgProfile className="mr-2" />
           <UserDetail />
         </button>
-        <h2 className="text-lg font-semi-bold mb-2 ">Suggested Repository</h2>
+        <h2 className="text-lg font-semi-bold mb-2 ">~ Suggested Repository ~</h2>
         <div className="relative mb-4">
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
           <input
@@ -178,19 +178,19 @@ useEffect(() => {
 
         <div className="flex gap-3">
   <Button
-    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none "
+    className="!text-blue-600 !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none "
     onClick={() => handleOpenEditModal(repo)}
     variant="outlined"
-    startIcon={<EditIcon className="text-[#217ad3]" />}
+    startIcon={<EditIcon className="text-blue-600" />}
   >
     Edit
   </Button>
 
   <Button
-    className="!text-[#217ad3] !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none"
+    className="!text-blue-600 !px-3 !py-1.5 rounded-lg flex items-center gap-1 !border-none"
     onClick={() => handleOpenDeleteModal(repo._id)}
     variant="outlined"
-    startIcon={<DeleteIcon className="text-[#217ad3]" />}
+    startIcon={<DeleteIcon className="text-blue-600" />}
   >
     Delete
   </Button>
@@ -203,10 +203,10 @@ useEffect(() => {
 
 
       <aside className="bg-white p-6 rounded-lg shadow-md col-span-1">
-        <h2 className="text-lg font-semibold mb-4">Upcoming Events</h2>
-        <div className="p-3 bg-gray-200 rounded-md mb-2">Tech Conference - Dec 15</div>
-       <div className="p-3 bg-gray-200 rounded-md mb-2">Developer Meetup - Dec 25</div>
-       <div className="p-3 bg-gray-200 rounded-md mb-2">Hackathon - Jan 5</div>
+        <h2 className="text-lg font-semibold mb-4">~ Upcoming Events ~</h2>
+        <div className="p-3 bg-gray-200 rounded-md mb-2 hover:bg-gray-300">Tech Conference - Dec 15</div>
+       <div className="p-3 bg-gray-200 rounded-md mb-2 hover:bg-gray-300">Developer Meetup - Dec 25</div>
+       <div className="p-3 bg-gray-200 rounded-md mb-2 hover:bg-gray-300">Hackathon - Jan 5</div>
     </aside>
 
       <Dialog open={openDeleteModal} onClose={handleCloseDeleteModal}>

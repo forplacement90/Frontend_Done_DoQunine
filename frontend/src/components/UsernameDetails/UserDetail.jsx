@@ -27,7 +27,7 @@ useEffect(() => {
 
   return (
    
-<div className="name">
+<div className="name font-medium">
  <h3>{userDetails.username}</h3>
           </div>
 
