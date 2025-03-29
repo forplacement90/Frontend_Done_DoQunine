@@ -18,8 +18,6 @@ const Login = ({ isSignup }) => {
 
   const validate = () => {
     let tempErrors = {};
-    if (isSignup && (!formData.username || formData.username.length < 6))
-      tempErrors.username = "Username must be at least 6 characters";
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       tempErrors.email = "Invalid email format";
     if (!formData.password || formData.password.length < 4)
@@ -119,7 +117,7 @@ const Login = ({ isSignup }) => {
           </form>
           <p className="text-sm text-gray-800 text-center mt-4">
             {isSignup ? "Already have an account? " : "New to Logic Store? "}
-            <Link to={isSignup ? "/auth" : "/signup"} className="text-gray-900 hover:underline">
+            <Link to={isSignup ? "/auth" : "/signup"} className="text-blue-800 hover:underline">
               {isSignup ? "Login" : "Create an account"}
             </Link>
           </p>

@@ -9,9 +9,9 @@ const Signup = () => {
   const { setCurrentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
+    username: "",
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -46,9 +46,13 @@ const Signup = () => {
     setLoading(true);
     try {
       const res = await axios.post("http://localhost:3002/signup", formData);
+
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
+
       setCurrentUser(res.data.userId);
+      setLoading(false);
+
       window.location.href = "/";
     } catch (err) {
       console.error(err);
@@ -119,7 +123,7 @@ const Signup = () => {
           </form>
 
           <p className="text-sm text-gray-800 text-center mt-4">
-            Already have an account? <Link to="/auth" className="text-gray-900 hover:underline">Login</Link>
+            Already have an account? <Link to="/auth" className="text-blue-800 hover:underline">Login</Link>
           </p>
         </div>
       </div>
